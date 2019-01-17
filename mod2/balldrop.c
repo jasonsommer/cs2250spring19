@@ -33,6 +33,7 @@ int main()
     distance = 0.5 * GRAVITY * pow(time, 2);
     printf("After %lf seconds, your ball travelled %f meters\n:",
             time, distance);
+    printf("Your ball is %lf meters from the ground.\n", BUILDING-distance);
 
 
     return 0;
