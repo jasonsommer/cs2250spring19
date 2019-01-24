@@ -25,17 +25,36 @@
 int main()
 {
     int inputNum = 0;
-
-    printf("Enter an integer: ");
-    scanf("%d", &inputNum);
+    int inputNum2 = 0;
+    printf("Enter two numbers: ");
+    scanf("%d %d", &inputNum,&inputNum2);
     //test value for even or odd
     if(inputNum % 2 == 0)
     {
-      printf("%d is even\n", num;
-    }
+        if(inputNum2 % 2 == 0)
+        {
+            printf("Both numbers are even.\n");
+        }
+        else
+        {
+            printf("The first number is even, but not the second number\n");
+        }
 
+    }
+    else
+    {
+        if(inputNum2 % 2 == 0)
+        {
+            printf("The first number is odd, but the second is even\n");
+        }
+        else
+        {
+            printf("Both numbers are odd\n");
+        }
+    }
+    
     return 0;
 }
-// Function Definitions
+                        // Function Definitions
 
 
