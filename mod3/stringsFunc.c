@@ -33,6 +33,10 @@ int main()
     printf("hi %s %s\n", first, last);
     strcpy(fullName, first);
     printf("Your full name is: %s\n", fullName);
+
+    strcpy(fullName, first);  //sets base of fullName
+    strcat(fullName, " ");    // adds a space after first in fullName
+    strcat(fullName, last);   // adds the last name to fullName.
     return 0;
 }
 // Function Definitions

@@ -16,7 +16,8 @@
  * =====================================================================================
  */
 #include <stdio.h>
-
+#define CELSIUS 0
+#define FAHRENHEIT 1
 // Constants
 
 // Function Prototypes
@@ -24,13 +25,40 @@
 // Main Function
 int main()
 {
-    double temp = 7.9; //Celsius
-    // For float use the %f placeholder
+    double in_temp = 7.9; //Celsius
+    double out_temp =0.0;
+    int choice=0;
+    printf("Welcome to the temperature calculator\n");
+    printf("Please enter your choice:\n");
+    printf("\t0 for Celsius or 1 for Fahrenheit:");
+    scanf("%d", &choice);
+
+    if(choice==0)
+        {
+            printf("Enter the temperature in Celius: ");
+            scanf("%lf", &in_temp);
+            out_temp=(in_temp*9/5)+32;
+            printf("The temperature is %lf F.\n\n", out_temp);
+
+        }
+    else if(choice==1)
+    {
+        printf("Enter the temperature in Fahrenheit: ");
+        scanf("%lf", &in_temp);
+        out_temp=(in_temp-32)*5/9;
+        printf("The temperature is %lf C.\n\n", out_temp);
+
+    }
+    else
+    {
+        printf("What are you doing, type a 1 or 0.\n\n");
+    }
+/*  
     printf("The temperature is %lf Celsius\n", temp);
     printf("What is the temperature in Ogen now: \n");
     scanf("%lf", &temp);
     printf("I see, your temp is %lf in F.\n", (temp*9/5)+32);
-
+*/
 
     return 0;
 }

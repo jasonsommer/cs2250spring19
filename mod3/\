@@ -44,7 +44,7 @@ radians = theta*((2.0*pi)/360.0);
 xCoor = cos(radians)*radius;
 yCoor = sin(radians)*radius;
 
-printf("(%06.2lf, %06.2lf)\n", xCoor, yCoor);
+printf("(%.2lf, %.2lf)\n", xCoor, yCoor);
 
 
 
