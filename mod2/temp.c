@@ -18,6 +18,11 @@
 #include <stdio.h>
 #define CELSIUS 0
 #define FAHRENHEIT 1
+#define BOIL_CEL 100
+#define BOIL_FAHR 212
+#define FREEZE_CEL 0
+#define FREEZE_FAHR 32
+
 // Constants
 
 // Function Prototypes
@@ -52,6 +57,39 @@ int main()
     else
     {
         printf("What are you doing, type a 1 or 0.\n\n");
+    }
+    if(choice == CELSIUS)
+    {
+        if(in_temp >=BOIL_CEL)
+        {
+            printf("Your water is boiling.\n");
+        }
+        else if(in_temp>=FREEZE_CEL)
+        {
+            printf("Your water is liquid.\n");
+        }
+        else
+        {
+            printf("Your water is frozen.\n");
+        }
+    }
+    else if(choice == FAHRENHEIT)
+    {
+        if(in_temp >=BOIL_FAHR)
+        {
+            printf("Your water is boiling.\n");
+        }
+        else if(in_temp>=FREEZE_FAHR)
+        {
+            printf("Your water is liquid.\n");
+        }
+        else
+        {
+            printf("Your water is frozen.\n");
+        }
+    }
+    else{
+        printf("Seriously put either a 1 or 0.\n\n");
     }
 /*  
     printf("The temperature is %lf Celsius\n", temp);
