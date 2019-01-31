@@ -29,7 +29,7 @@ int main()
 {
     int angle;
 
-    printf("Give me an angle, and Ill give you the quadrant: ");
+    printf("Give me an angle, and I'll tell you where it is: ");
     scanf("%d", &angle);
 
     angle= angle %360;
@@ -39,36 +39,52 @@ int main()
     }
 
 
+  printf("Your angle is ");
     if(angle>0 && angle<90)
     {
-        printf("Quadrant I");
+        printf("in Quadrant I");
     }
     else if(angle>90 && angle<180)
     {
-        printf("Quadrant II");
+        printf("in Quadrant II");
     }
     else if(angle>180 && angle<270)
     {
-        printf("Quadrant III");
+        printf("in Quadrant III");
     }
     else if(angle>270 && angle<360)
     {
-        printf("Quadrant IV");
+        printf("in Quadrant IV");
     }
     else 
     {
-        printf("Your angle is on the ");
         
           if(angle == 0 || angle ==180)
           { 
-              printf("X axis");
+              printf("on the X axis");
             }
           else if (angle == 90 || angle ==270)
           {
-              printf("Y axis");
+              printf("on the Y axis");
           }
     }
-
+/*
+ * switch(angle)
+ * { 
+ * case 0:
+ * printf("The angle is on the positive X axis\n");
+ * break;
+ * case 90:
+ * printf(""   "");
+ * break;
+ * case 180:
+ * printf(""  "");
+ * break;
+ * case 270:
+ * printf(""    "");
+ * break;
+ * }
+ * */
 
   printf("\n");
 
