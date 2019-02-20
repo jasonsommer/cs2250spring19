@@ -1,6 +1,8 @@
 #include <stdio.h>
 #define NUMP 5
-int main(void) {
+void Menu(void);
+int main(void) 
+{
 int jersey[NUMP];
 int rating[NUMP];
 char option='z';
@@ -22,83 +24,76 @@ for(int i=0; i<NUMP; i++)
 {
     printf("Player %d -- Jersey number: %d, Rating: %d\n", i+1, jersey[i], rating[i]);
 }
-   //printf("\n");
-
-//while(1)
-//{
-
-for(int j = 0; j<100; j++)
+while(1) //for(int j = 0; j<100; j++)
 {
-  // if(why!=0)
-   //{
-   scanf("%c", &option);
+/*
     printf("\n");
-    printf("Menu\n");
+    printf("MENU\n");
     printf("u - Update player rating\n");
-    printf("a - Output players aboce a rating\n");
+    printf("a - Output players above a rating\n");
     printf("r - Replace player\n");
     printf("o - Output roster\n");
-    printf("q - Quit\n");
-    //printf("why");
-   // scanf("%c", &option);
-   
-//while(1)
-//{
+    printf("q - Quit\n\n");
+
+    printf("Choose an option:\n");*/
+    Menu();
+    scanf("%c", &option);
+
 if(option== 'o')
 {
-printf("ROSTER\n");
-for(int i=0; i<NUMP; i++)
-{
-printf("\nPlayer %d -- Jersey number: %d, Rating: %d\n", i+1, jersey[i], rating[i]);
-}
+    printf("ROSTER\n");
+    for(int i=0; i<NUMP; i++)
+        {
+        printf("Player %d -- Jersey number: %d, Rating: %d\n", i+1, jersey[i], rating[i]);
+        }
 }
 else if(option== 'u')
 {
-printf("\nEnter a jersey number:\n");
-scanf("%d", &temnum);
-printf("Enter a new rating for player:\n");
-scanf("%d", &temtwo);
-for(int i = 0; i<NUMP; i++)
-{
-if(temnum==jersey[i])
-{
-rating[i]=temtwo;
-}
-}
+    printf("Enter a jersey number:\n");
+    scanf("%d", &temnum);
+    printf("Enter a new rating for player:\n");
+    scanf("%d", &temtwo);
+    for(int i = 0; i<NUMP; i++)
+        {
+        if(temnum==jersey[i])
+            {
+            rating[i]=temtwo;
+            }
+        }
 }
 else if(option== 'a')
 {
-printf("\nEnter a rating:\n");
-scanf("%d", &temnum);
-printf("\nABOVE %d\n", temnum);
-for(int i=0; i<NUMP; i++)
-{
-if(rating[i]>temnum)
-{
-printf("Player %d -- Jersey number: %d, Rating: %d\n", i+1, jersey[i], rating[i]);
-}
-}
+    printf("Enter a rating:\n");
+    scanf("%d", &temnum);
+    printf("\nABOVE %d\n", temnum);
+    for(int i=0; i<NUMP; i++)
+        {
+            if(rating[i]>temnum)
+                {
+                printf("Player %d -- Jersey number: %d, Rating: %d\n", i+1, jersey[i], rating[i]);
+                }
+        }
 }
 else if(option == 'r')
 {
-printf("\nEnter a jersey number:\n");
-scanf("%d", &temnum);
-printf("Enter a new jersey number:\n");
-scanf("%d", &temtwo);
-printf("Enter a rating for the new player:\n");
-scanf("%d", &temthre);
-for(int i = 0; i< NUMP; i++)
-{
-if(jersey[i]==temnum)
-{
-jersey[i]=temtwo;
-rating[i]=temthre;
-}
-}
+    printf("Enter a jersey number:\n");
+    scanf("%d", &temnum);
+    printf("Enter a new jersey number:\n");
+    scanf("%d", &temtwo);
+    printf("Enter a rating for the new player:\n");
+    scanf("%d", &temthre);
+    for(int i = 0; i< NUMP; i++)
+        {
+        if(jersey[i]==temnum)
+            {
+            jersey[i]=temtwo;
+            rating[i]=temthre;
+            }
+        }
 }
 else if(option =='q')
 {
-return 0;
+    return 0;
 }
 why++;
 /*else if(option!='z')
@@ -111,4 +106,17 @@ why++;
 
 
    return 0;
+}
+
+void Menu(void)
+{
+    printf("\n");
+    printf("MENU\n");
+    printf("u - Update player rating\n");
+    printf("a - Output players above a rating\n");
+    printf("r - Replace player\n");
+    printf("o - Output roster\n");
+    printf("q - Quit\n\n");
+
+    printf("Choose an option:\n");
 }
