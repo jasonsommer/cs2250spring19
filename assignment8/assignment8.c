@@ -20,7 +20,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-void GetNumOfCharacters(char userInput[]);
+int GetNumOfCharacters(char userInput[]);
 void RmvSpace(char userInput[]);
 //int str_len=50;
 // Constants
@@ -31,18 +31,19 @@ const int str_len = 1000;
 int main(int argc, char* argv[])
 {
     char User_String[str_len];
-    printf("Enter a sentence or phrase: \n");
+    printf("Enter a sentence or phrase:\n");
     fgets(User_String, str_len, stdin);
-    User_String[strlen(User_String)-1]='\0';
-    printf("\nYou entered: %s\n\n", User_String);
+    printf("\n");
+    User_String[strlen(User_String)]='\0';
+    printf("You entered: %s\n\n", User_String);
 
-    GetNumOfCharacters(User_String);
+    printf("Number of characters: %d",GetNumOfCharacters(User_String));
     RmvSpace(User_String);
 
     return 0;
 }
 // Function Definitions
-void GetNumOfCharacters(char userInput[])
+int GetNumOfCharacters(char userInput[])
 {
     int numChar = 0;
    for(int i=0; i<strlen(userInput); i++)
@@ -52,8 +53,8 @@ void GetNumOfCharacters(char userInput[])
            numChar++;
        }
    }
- printf("Number of Characters: %d\n", numChar);
-return;
+// printf("Number of characters: %d\n", numChar);
+return numChar;
 }
 
 void RmvSpace(char userInput[])
@@ -69,6 +70,6 @@ for(int i=0; i<strlen(userInput); i++)
         j++;
     }
 }
-printf("String with no whitespaces: %s\n", newStr);
+printf("String with no whitespace: %s\n", newStr);
     return;
 }
