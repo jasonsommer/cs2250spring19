@@ -19,6 +19,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <ctype.h>
 
 int GetNumOfCharacters(char userInput[]);
 void RmvSpace(char userInput[]);
@@ -48,7 +49,7 @@ int GetNumOfCharacters(char userInput[])
     int numChar = 0;
    for(int i=0; i<strlen(userInput); i++)
    {
-       if(userInput[i]!=' ')
+       if(isalpha(userInput[i]))
        {
            numChar++;
        }
