@@ -30,7 +30,8 @@ const int STRLEN = 1000; //may need to be increase depending on
 char PrintMenu();
 void Menu();
 int GetNumOfNonWSCharacters(char userInput[]);
-int getNumOfWords(char userInput[]);
+//int getNumOfWords(char userInput[]);
+char ReplaceExclamation(char userInput[]);
 
 // Main Function
 int main(int argc, char* argv[])
@@ -52,7 +53,30 @@ int main(int argc, char* argv[])
        }
        else if(choice=='w')
        {
-           getNumOfWords(userInput);
+           //getNumOfWords(userInput);
+       }
+       else if(choice=='f')
+       {
+
+       }
+       else if(choice=='r')
+       {
+           
+             for(int i =0; i<strlen(userInput);i++)
+    {
+        if(userInput[i]=='!')
+        {
+            userInput[i]='.';
+        }
+         ReplaceExclamation(userInput);
+            
+    }
+
+            //  strcpy(userInput, ReplaceExclamation(userInput));
+       }
+       else if(choice=='s')
+       {
+
        }
     }
 
@@ -108,13 +132,14 @@ int GetNumOfNonWSCharacters(char userInput[])
     return numWS;
 }
 //////////////////////////////////////////////////////////////////
+/*
 int getNumOfWords(char userInput[])
 {
      int numWords=0;
 
      for(int i=0; i<strlen(userInput); i++)
      {
-         if(isalpha(userInput[i])&&!(isalpha(userInput[i+1])))
+         if(isalpha(userInput[i])&&!(isalpha(userInput[i+1])&&!((userInput[i+1]=='''')&&!(isalpha(userInput[i+2])))))
          {
              numWords++;
          }
@@ -126,4 +151,17 @@ printf("Number of words: %d\n\n", numWords);
 
      return numWords;
 }
-
+*/
+//////////////////////////////////////////////////////////////////////////////////////////
+char ReplaceExclamation(char userInput[])
+{
+    for(int i =0; i<strlen(userInput);i++)
+    {
+        if(userInput[i]=='!')
+        {
+            userInput[i]='.';
+        }
+            
+    }
+return userInput[STRLEN];
+}
