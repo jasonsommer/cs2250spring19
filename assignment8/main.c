@@ -36,7 +36,9 @@ int main(int argc, char* argv[])
     char userInput[STRLEN];
     printf("Enter a sample text:\n");
     fgets(userInput, STRLEN, stdin);
-    printf("\nYou entered: %s", userInput);
+    printf("\nYou entered: %s\n", userInput);
+    Menu();
+    PrintMenu();
 
     return 0;
 }
@@ -47,8 +49,9 @@ void Menu()
     printf("MENU\nc - Number of non-whitespace characters\n");
     printf("w - Number of words\nf - Fix capitalizaton\n");
     printf("r - Replace all !'s\ns - Shorten spaces\nq - Quit\n\n");
-    printf("Choose an option:");
-    PrintMenu();
+    printf("Choose an option:\n");
+
+    //PrintMenu();
     
     return;
 }
@@ -57,7 +60,7 @@ char PrintMenu()
 {
     char userChoice;
     int temp=0;
-    Menu();
+   // Menu();
     while(temp==0)
     {
     scanf("%c", &userChoice);
