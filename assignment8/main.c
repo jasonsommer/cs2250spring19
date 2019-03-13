@@ -32,6 +32,7 @@ void Menu();
 int GetNumOfNonWSCharacters(char userInput[]);
 //int getNumOfWords(char userInput[]);
 char ReplaceExclamation(char userInput[]);
+char ShortenSpace(char userInput[]);
 
 // Main Function
 int main(int argc, char* argv[])
@@ -69,6 +70,7 @@ int main(int argc, char* argv[])
             userInput[i]='.';
         }
          ReplaceExclamation(userInput);
+         printf("Edited text: %s\n", userInput);
             
     }
 
@@ -76,6 +78,21 @@ int main(int argc, char* argv[])
        }
        else if(choice=='s')
        {
+           int temp2=0;
+           for(int i=0; i<strlen(userInput); i++)
+                   {
+                   if((userInput[i]==' ')&&(userInput[i+1]==' '))
+                   {
+                   temp2++;
+                   i++;
+                   userInput[i]=userInput[i+temp2];
+                   }
+                    
+                   }
+           ShortenSpace(userInput);
+
+                   
+
 
        }
     }
@@ -164,4 +181,9 @@ char ReplaceExclamation(char userInput[])
             
     }
 return userInput[STRLEN];
+}
+
+char Shorten(char userInput[])
+{
+    return userInput[STRLEN];
 }
