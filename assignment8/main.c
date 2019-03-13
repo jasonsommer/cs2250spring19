@@ -29,25 +29,42 @@ const int STRLEN = 1000; //may need to be increase depending on
 // Function Prototypes
 char PrintMenu();
 void Menu();
+int GetNumOfNonWSCharacters(char userInput[]);
+int getNumOfWords(char userInput[]);
+
 // Main Function
 int main(int argc, char* argv[])
 {
 
     char userInput[STRLEN];
+    char choice = 't';
     printf("Enter a sample text:\n");
     fgets(userInput, STRLEN, stdin);
     printf("\nYou entered: %s\n", userInput);
+
+    while(choice!='q')
+    {
     Menu();
-    PrintMenu();
+    choice=PrintMenu();
+       if(choice=='c')
+       {
+           GetNumOfNonWSCharacters(userInput);
+       }
+       else if(choice=='w')
+       {
+           getNumOfWords(userInput);
+       }
+    }
 
     return 0;
 }
 // Function Definitions
 //
+///////////////////////////////////////////////////////////////////////
 void Menu()
 {
     printf("MENU\nc - Number of non-whitespace characters\n");
-    printf("w - Number of words\nf - Fix capitalizaton\n");
+    printf("w - Number of words\nf - Fix capitalization\n");
     printf("r - Replace all !'s\ns - Shorten spaces\nq - Quit\n\n");
     printf("Choose an option:\n");
 
@@ -55,9 +72,10 @@ void Menu()
     
     return;
 }
-
+////////////////////////////////////////////////////////////////////
 char PrintMenu()
 {
+    //Menu();
     char userChoice;
     int temp=0;
    // Menu();
@@ -73,5 +91,39 @@ char PrintMenu()
 return userChoice;
 
 }
+///////////////////////////////////////////////////////////////////
+int GetNumOfNonWSCharacters(char userInput[])
+{
+    int numWS=0;
+    for(int i=0; i<(strlen(userInput)-1); i++)
+    {
+        if(userInput[i]!=' ')
+                {
+                numWS++;
+                }
 
+
+    }
+    printf("Number of non-whitespace characters: %d\n\n", numWS);
+    return numWS;
+}
+//////////////////////////////////////////////////////////////////
+int getNumOfWords(char userInput[])
+{
+     int numWords=0;
+
+     for(int i=0; i<strlen(userInput); i++)
+     {
+         if(isalpha(userInput[i])&&!(isalpha(userInput[i+1])))
+         {
+             numWords++;
+         }
+     }
+printf("Number of words: %d\n\n", numWords);
+
+
+
+
+     return numWords;
+}
 
