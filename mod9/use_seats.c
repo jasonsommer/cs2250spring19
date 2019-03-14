@@ -1,63 +1,34 @@
-/**
- * @author      : Hugo Valle (hugovalle1@weber.edu)
- * @file        : hello
- * @created     : Tuesday Nov 13, 2018 15:12:48 UTC
+/*
+ * =====================================================================================
+ *
+ *       Filename:  use_seats.c
+ *
+ *    Description:  
+ *
+ *        Version:  1.0
+ *        Created:  03/14/2019 09:04:20 AM
+ *       Revision:  none
+ *       Compiler:  gcc use_seats.c seats.c -o use_seats.out
+ *          Usage:  ./use_seats.out
+ *
+ *         Author:  Jason Sommer (), Jasonsommer@mail.weber.edu
+ *   Organization:  WSU
+ *
+ * =====================================================================================
  */
 #include <stdio.h>
-#include "seats.h"
-/*  moved to seats.h
-typedef struct Seat_struct 
+#include <stdlib.h>
+#include "seats.c"
+
+// Constants
+
+// Function Prototypes
+
+// Main Function
+
+int main(void) 
 {
-    char firstName[50];
-    char lastName[50];
-    int  amountPaid;
-} Seat;
-*/
-/*** Functions for Seat ***/
-void SeatMakeEmpty(Seat* seat) 
-{
-//    strcpy((*seat).firstName, "empty");
-    strcpy(seat->firstName, "empty");
-    strcpy(seat->lastName,  "empty");
-    seat->amountPaid = 0;
-}
-
-bool SeatIsEmpty(Seat seat) 
-{
-    return (strcmp(seat.firstName, "empty") == 0);
-}
-
-void SeatPrint(Seat seat) 
-{
-    printf("%s ", seat.firstName);
-    printf("%s, ", seat.lastName);
-    printf("Paid: %d\n", seat.amountPaid);
-}
-/*** End functions for Seat ***/
-
-/*** Functions for array of Seat ***/
-void SeatsMakeEmpty(Seat seats[], int numSeats) 
-{
-    int i;
-
-    for (i = 0; i < numSeats; ++i) {
-        SeatMakeEmpty(&seats[i]);
-    }
-}
-
-void SeatsPrint(Seat seats[], int numSeats) 
-{
-    int i;
-
-    for (i = 0; i < numSeats; ++i) {
-        printf("%d: ", i);
-        SeatPrint(seats[i]);
-    }
-}
-/*** End functions for array of Seat ***/
-
-
-/*    const int NUM_SEATS = 5;
+    const int NUM_SEATS = 5;
     char userKey;
     int  seatNum;
     Seat allSeats[NUM_SEATS];
@@ -104,6 +75,10 @@ void SeatsPrint(Seat seats[], int numSeats)
             printf("Invalid command.\n\n");
         }
     }
-*/
+
+
+    return 0;
+}
+// Function Definitions
 
 
