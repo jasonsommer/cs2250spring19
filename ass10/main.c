@@ -26,6 +26,19 @@
 // Main Function
 int main(int argc, char* argv[])
 {
+    ShoppingCart customer;
+
+    printf("Enter Customer's Name:\n");
+    scanf("%[^\n]", customer.customerName);
+    fflush(stdin);
+    getchar();
+    printf("Enter Today's Date:\n");
+    scanf("%[^\n]", customer.currentDate);
+    fflush(stdin);
+    getchar();
+    printf("\nCustomer Name: %s\n", customer.customerName);
+    printf("Today's Date: %s\n", customer.currentDate);
+    PrintMenu();
 
     return 0;
 }

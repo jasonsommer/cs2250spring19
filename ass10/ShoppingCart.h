@@ -30,8 +30,8 @@ typedef struct ShoppingCart
 }ShoppingCart;
 void PrintTotal();
 ///////////////////////////////////////////////////
-void PrintDescriptions();
 //////////////////////////////////////////////////////
+void PrintDescriptions(const ShoppingCart *cart);
 void PrintMenu();
 //////////////////////////////////////////
 void AddItem();
@@ -39,7 +39,7 @@ void AddItem();
 void RemoveItem();
 
 void ModifyItem();
-void GetNumItemsInCart();
+int GetNumItemsInCart(struct ShoppingCart cart);
 int GetCostOfCart(struct ShoppingCart cart);
 
 #endif /* ----- #ifndef SHOPPINGCART__INC__ ----- */

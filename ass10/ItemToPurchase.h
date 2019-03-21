@@ -17,7 +17,7 @@
  */
 #ifndef  ITEMTOPURCHASE__INC__
 #define  ITEMTOPURCHASE__INC__
-#include <strings.h>
+
 
     
 typedef struct ItemToPurchase
@@ -29,9 +29,9 @@ int itemNumber;
 char itemDescription[];
 }ItemToPurchase;
 
-void PrintItemCost(struct ItemToPurchase item);
-void MakeItemBlank(struct ItemToPurchase* item);
-//void PrintItemDescription(struct ItemToPurchase* item);
+//void PrintItemCost(struct ItemToPurchase item);
+//void MakeItemBlank(struct ItemToPurchase* item);
+
 
 
 #endif /* ----- #ifndef ITEMTOPURCHASE__INC__ ----- */
