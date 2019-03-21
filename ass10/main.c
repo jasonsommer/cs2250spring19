@@ -40,6 +40,9 @@ int main(int argc, char* argv[])
     printf("Today's Date: %s\n\n", customer.currentDate);
     PrintMenu();
 
+    fflush(stdin);
+    getchar();
+
     return 0;
 }
 // Function Definitions

@@ -19,7 +19,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "ShoppingCart.h"
-#include "ItemToPurchase.h"
 
 // Constants
 
@@ -27,8 +26,22 @@
 
 // Main Function
 // Function Definitions
-void PrintTotal(struct ShoppingCart* cart)
+void PrintTotal(const ShoppingCart cart)
 {
+    printf("%s's Shopping Cart - %s\n", cart.customerName, cart.currentDate);
+    printf("Number of Items: %d", GetNumItemsInCart(cart));
+    for(int i=0; i<MAX; i++)
+    {
+        if(strcmp(cart.cartItems[i].itemName, "none")!=0)
+        {
+            printf("%s %d @ %d = %d\n", cart.cartItems[i].itemName, cart.cartItems[i].itemQuantity, 
+                    cart.cartItems[i].itemPrice, cart.cartItems[i].itemPrice * cart.cartItems[i].itemQuantity);
+        }
+    }
+    printf("\nTotal: $%d\n", GetCostOfCart(cart));
+
+    return;
+
 
 }
 ///////////////////////////////////////////////////
@@ -61,28 +74,28 @@ void PrintMenu(struct ShoppingCart *cart)
     {
     printf("Choose an option:\n");
     scanf(" %c", &userInput);
-    if(userInput=='a')
+    if(userInput=='a')//add item to the cart
     {
-        AddItem();
+       // AddItem();
     }
-    else if(userInput=='r')
+    else if(userInput=='r')//remove item from cart
     {
         RemoveItem();
     }
-    else if(userInput=='c')
+    else if(userInput=='c')//change item quantity
     {
         ModifyItem();
     }
-    else if(userInput=='i')
+    else if(userInput=='i')//output items descriptions
     {
      PrintDescriptions(cart);
      }
-    else if (userInput=='o')
+    else if (userInput=='o')//output shopping cart
     {
         printf("OUTPUT SHOPPING CART\n");
-        PrintTotal(cart);
+        PrintTotal(*cart);
     }
-    else if(userInput=='q')
+    else if(userInput=='q')//quit
     {
         break;
     }

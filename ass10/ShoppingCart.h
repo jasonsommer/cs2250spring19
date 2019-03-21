@@ -17,8 +17,9 @@
  */
 #ifndef  SHOPPINGCART__INC__
 #define  SHOPPINGCART__INC__
-#include "ItemToPurchase.c"
 #include <string.h>
+#include "ItemToPurchase.h"
+//#include <string.h>
 #define MAX 10
 
 typedef struct ShoppingCart
@@ -28,14 +29,14 @@ typedef struct ShoppingCart
     int cartSize;
     struct ItemToPurchase cartItems[10];
 }ShoppingCart;
-void PrintTotal();
+void PrintTotal(const ShoppingCart cart);
 ///////////////////////////////////////////////////
 //////////////////////////////////////////////////////
 void PrintDescriptions(const ShoppingCart *cart);
 void PrintMenu();
 //////////////////////////////////////////
 void AddItem();
-///////////////////////////////////////////////
+/////////////////////////////////////////////
 void RemoveItem();
 
 void ModifyItem();

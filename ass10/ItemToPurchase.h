@@ -29,8 +29,8 @@ int itemNumber;
 char itemDescription[];
 }ItemToPurchase;
 
-//void PrintItemCost(struct ItemToPurchase item);
-//void MakeItemBlank(struct ItemToPurchase* item);
+void PrintItemCost(const ItemToPurchase item);
+void MakeItemBlank(struct ItemToPurchase* item);
 
 
 

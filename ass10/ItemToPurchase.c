@@ -28,7 +28,8 @@
 // Main Function
 
 // Function Definitions
-/*
+
+
 void MakeItemBlank(struct ItemToPurchase* item)
 {
     strcpy(item->itemName, "none");
@@ -50,4 +51,5 @@ void PrintItemCost(struct ItemToPurchase item)
                                 (item.itemPrice * item.itemQuantity));
     return;
 }
-*/
+
+
