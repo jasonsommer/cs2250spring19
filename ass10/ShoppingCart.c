@@ -50,17 +50,17 @@ void PrintDescriptions(const ShoppingCart *cart)
 void PrintMenu(struct ShoppingCart *cart)
 {
     char userInput='-';
-    printf("MENU\n");
+    printf("\nMENU\n");
     printf("a - Add item to cart\n");
     printf("r - Remove item from cart\n");
     printf("c - Change item quantity\n");
     printf("i - Output items' descriptions\n");
-    printf("o - Output Shopping cart\n");
+    printf("o - Output shopping cart\n");
     printf("q - Quit\n\n");
     while(1)///////////////update when done with remaining functions
     {
     printf("Choose an option:\n");
-    scanf("%c", &userInput);
+    scanf(" %c", &userInput);
     if(userInput=='a')
     {
         AddItem();
