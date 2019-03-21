@@ -26,10 +26,12 @@ char itemName[2000];
 int itemPrice;
 int itemQuantity;
 int itemNumber;
-}item;
+char itemDescription[];
+}ItemToPurchase;
 
 void PrintItemCost(struct ItemToPurchase item);
 void MakeItemBlank(struct ItemToPurchase* item);
+//void PrintItemDescription(struct ItemToPurchase* item);
 
 
 #endif /* ----- #ifndef ITEMTOPURCHASE__INC__ ----- */

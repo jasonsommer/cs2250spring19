@@ -34,13 +34,14 @@ void MakeItemBlank(struct ItemToPurchase* item)
     strcpy(item->itemName, "none");
     item->itemPrice=0;
     item->itemQuantity=0;
+    strcpy(item->itemName, "none");
 
     return;
 }
 
 void PrintItemCost(struct ItemToPurchase item)
 {
-    for(int i=0; item.itemName[i+1]!='\n'; i++)
+    for(int i=0; item.itemName[i]!='\n'; i++)
 
     {
         printf("%c", item.itemName[i]);
