@@ -35,7 +35,7 @@ void MakeItemBlank(struct ItemToPurchase* item)
     strcpy(item->itemName, "none");
     item->itemPrice=0;
     item->itemQuantity=0;
-    strcpy(item->itemName, "none");
+    strcpy(item->itemDescription, "none");
 
     return;
 }

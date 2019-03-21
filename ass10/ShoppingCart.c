@@ -80,7 +80,7 @@ void PrintMenu(struct ShoppingCart *cart)
     }
     else if(userInput=='r')//remove item from cart
     {
-        RemoveItem();
+        //RemoveItem();
     }
     else if(userInput=='c')//change item quantity
     {
@@ -105,14 +105,38 @@ void PrintMenu(struct ShoppingCart *cart)
     return;
 }
 //////////////////////////////////////////
-void AddItem()
+
+ShoppingCart AddItem(struct ItemToPurchase *item, struct ShoppingCart *cart)
 {
-    return;
+   /* char tempName[50];
+    char tempDesc[2000];
+    int tempprice=0;
+    int tempquant=0;
+    */
+    int i=0;
+    while(strcmp(cart->cartItems[i].itemName, "none")!=0)
+    {
+        i++;
+
+    }
+    cart->cartItems[i]=*item;
+    return *cart;
 }
 ///////////////////////////////////////////////
-void RemoveItem()
+ShoppingCart RemoveItem(char itemName[50],struct ShoppingCart * cart )
 {
-    return;
+    int i=0;
+    int flag=0;
+    while(i<MAX)
+    {
+        if(strcmp(itemName, cart->cartItems[i].itemName)==0)
+        {
+            MakeItemBlank(&cart->cartItems[i]);
+            flag=i;
+            i++;
+        }
+    }
+    return *cart;
 }
 
 void ModifyItem()

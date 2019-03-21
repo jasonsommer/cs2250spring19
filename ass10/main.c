@@ -37,7 +37,7 @@ int main(int argc, char* argv[])
     fflush(stdin);
     getchar();
     printf("\nCustomer Name: %s\n", customer.customerName);
-    printf("Today's Date: %s\n\n", customer.currentDate);
+    printf("Today's Date: %s\n", customer.currentDate);
     PrintMenu();
 
     fflush(stdin);

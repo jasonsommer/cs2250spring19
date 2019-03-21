@@ -22,11 +22,11 @@
     
 typedef struct ItemToPurchase
 {
-char itemName[2000];
+char itemName[60];
 int itemPrice;
 int itemQuantity;
 int itemNumber;
-char itemDescription[];
+char itemDescription[2000];
 }ItemToPurchase;
 
 void PrintItemCost(const ItemToPurchase item);
