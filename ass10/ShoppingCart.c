@@ -61,9 +61,8 @@ void PrintDescriptions(const ShoppingCart *cart)
 //////////////////////////////////////////////////////
 void PrintMenu(struct ShoppingCart cart)
 {
-    int i=0;
+
     char userInput='-';
-    ItemToPurchase temp;
     printf("\nMENU\n");
     printf("a - Add item to cart\n");
     printf("r - Remove item from cart\n");
@@ -77,14 +76,13 @@ void PrintMenu(struct ShoppingCart cart)
     scanf(" %c", &userInput);
     if(userInput=='a')//add item to the cart
     {
-        temp=scanItem();
-        cart.cartItems[i]=temp;
-        i++;
+        cart=AddItem(scanItem(), cart);
        
     }
     else if(userInput=='r')//remove item from cart
     {
         fflush(stdin);
+        getchar();
         char toremove[50]="-";
         printf("REMOVE ITEM FROM CART\n");
         printf("Enter name of item to remove:\n");
@@ -121,7 +119,7 @@ ShoppingCart AddItem(struct ItemToPurchase item, struct ShoppingCart older)
     int j=0;
     while(i==-1)
     {
-        if(strcmp(older.cartItems[j].itemName, "empty")==0)
+        if(older.cartItems[j].itemPrice==0)
         {
             older.cartItems[j]=item;
             i--;

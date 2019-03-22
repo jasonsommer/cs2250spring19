@@ -27,7 +27,7 @@ typedef struct ShoppingCart
     char customerName[100];
     char currentDate[100];
     int cartSize;
-    struct ItemToPurchase cartItems[100];
+    struct ItemToPurchase cartItems[MAX];
 }ShoppingCart;
 void PrintTotal(const ShoppingCart cart);
 ///////////////////////////////////////////////////
