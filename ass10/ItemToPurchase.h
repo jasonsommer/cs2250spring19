@@ -31,6 +31,7 @@ char itemDescription[2000];
 
 void PrintItemCost(const ItemToPurchase item);
 void MakeItemBlank(struct ItemToPurchase* item);
+ItemToPurchase scanItem();
 
 
 

@@ -63,7 +63,7 @@ void PrintDescriptions(const ShoppingCart *cart)
 void PrintMenu(struct ShoppingCart *cart)
 {
     char userInput='-';
-    ItemToPurchase temp;
+   // ItemToPurchase temp;
     printf("\nMENU\n");
     printf("a - Add item to cart\n");
     printf("r - Remove item from cart\n");
@@ -77,7 +77,8 @@ void PrintMenu(struct ShoppingCart *cart)
     scanf(" %c", &userInput);
     if(userInput=='a')//add item to the cart
     {
-        *cart=AddItem(temp, *cart);
+       // *cart=AddItem(temp, cart);
+       printf("the item's name is: %s\n", scanItem().itemName);
     }
     else if(userInput=='r')//remove item from cart
     {
@@ -111,45 +112,19 @@ void PrintMenu(struct ShoppingCart *cart)
 }
 //////////////////////////////////////////
 
-ShoppingCart AddItem(struct ItemToPurchase item, struct ShoppingCart cart)
+ShoppingCart AddItem(struct ItemToPurchase item, struct ShoppingCart *cart)
 {
-    //char tempName[50];
-    //char tempDesc[2000];
-    int tempprice=0;
-    int tempquant=0;
     int i=-1;
     int j=0;
-    printf("ADD ITEM TO CART\n");
-    printf("Enter the item name:\n");
-    scanf(" %s", item.itemName);
-    fflush(stdin);
-    printf("Enter the item description:\n");
-    scanf(" %s", item.itemDescription);
-    printf("Enter the item price:\n");
-    scanf(" %d", &tempprice);
-    printf("Enter the item quantity:\n");
-    scanf(" %d", &tempquant);
-    item.itemPrice=tempprice;
-    item.itemQuantity=tempquant;
-
     while(i==-1)
     {
-
-        
-        if(strcmp(cart.cartItems[j].itemName, "none")==0)
+        if(strcmp(cart->cartItems[j].itemName, "empty")==0)
         {
-            i=i-1;
-            j=j-1;
+            cart->cartItems[j]=item;
         }
         j++;
     }
-
-    cart.cartItems[j]=item;
-
-    fflush(stdin);
-    
-
-    return cart;
+    return *cart;
 }
 ///////////////////////////////////////////////
 ShoppingCart RemoveItem(char itemName[50],struct ShoppingCart * cart )

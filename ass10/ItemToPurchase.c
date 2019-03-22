@@ -52,4 +52,20 @@ void PrintItemCost(struct ItemToPurchase item)
     return;
 }
 
+ItemToPurchase scanItem()
+{
+    ItemToPurchase temp;
+   printf("ADD ITEM TO CART\n");
+   printf("Enter the item name:\n");
+   scanf(" %[^\n]", temp.itemName);
+   fflush(stdin);
+   printf("Enter the item description:\n");
+   scanf(" %[^\n]", temp.itemDescription);
+   printf("Enter the item price:\n");
+   scanf(" %d", &temp.itemPrice);
+   printf("Enter the item quantity:\n");
+   scanf(" %d", & temp.itemQuantity);
+   return temp;
+}
+
 

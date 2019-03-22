@@ -35,7 +35,7 @@ void PrintTotal(const ShoppingCart cart);
 void PrintDescriptions(const ShoppingCart *cart);
 void PrintMenu();
 //////////////////////////////////////////
-ShoppingCart AddItem(struct ItemToPurchase item, struct ShoppingCart cart);
+ShoppingCart AddItem(struct ItemToPurchase item, struct ShoppingCart *cart);
 /////////////////////////////////////////////
 
 ShoppingCart RemoveItem(char itemName[50],struct ShoppingCart * cart );
