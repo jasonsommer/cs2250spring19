@@ -40,7 +40,7 @@ ShoppingCart AddItem(struct ItemToPurchase item, struct ShoppingCart older);
 
 ShoppingCart RemoveItem(char itemName[50],struct ShoppingCart * cart );
 ShoppingCart ModifyItem(struct ItemToPurchase item, struct ShoppingCart * cart);
-int GetNumItemsInCart(struct ShoppingCart cart);
+int GetNumItemsInCart(struct ShoppingCart  cart);
 int GetCostOfCart(struct ShoppingCart cart);
 
 #endif /* ----- #ifndef SHOPPINGCART__INC__ ----- */

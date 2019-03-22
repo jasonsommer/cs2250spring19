@@ -217,12 +217,12 @@ ShoppingCart ModifyItem(struct ItemToPurchase item, struct ShoppingCart * cart)
 
     return *cart;
 }
-int GetNumItemsInCart(struct ShoppingCart cart)
+int GetNumItemsInCart(struct ShoppingCart ShoppingCart)
 {
  int total=0;
  for(int i=0; i<=MAX; i++)
  {
-     total=total+cart.cartItems[i].itemQuantity;
+     total=total+ShoppingCart.cartItems[i].itemQuantity;
 
  }
 
