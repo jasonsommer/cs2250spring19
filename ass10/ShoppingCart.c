@@ -63,6 +63,7 @@ void PrintDescriptions(const ShoppingCart *cart)
 void PrintMenu(struct ShoppingCart *cart)
 {
     char userInput='-';
+    ItemToPurchase temp;
     printf("\nMENU\n");
     printf("a - Add item to cart\n");
     printf("r - Remove item from cart\n");
@@ -76,11 +77,15 @@ void PrintMenu(struct ShoppingCart *cart)
     scanf(" %c", &userInput);
     if(userInput=='a')//add item to the cart
     {
-       // AddItem();
+        *cart=AddItem(temp, *cart);
     }
     else if(userInput=='r')//remove item from cart
     {
-        //RemoveItem();
+        char toremove[50]="-";
+        printf("REMOVE ITEM FROM CART\n");
+        printf("Enter name of item to remove:\n");
+        scanf("%[^\n]", toremove);
+        RemoveItem(toremove, cart);
     }
     else if(userInput=='c')//change item quantity
     {
@@ -106,36 +111,79 @@ void PrintMenu(struct ShoppingCart *cart)
 }
 //////////////////////////////////////////
 
-ShoppingCart AddItem(struct ItemToPurchase *item, struct ShoppingCart *cart)
+ShoppingCart AddItem(struct ItemToPurchase item, struct ShoppingCart cart)
 {
-   /* char tempName[50];
-    char tempDesc[2000];
+    //char tempName[50];
+    //char tempDesc[2000];
     int tempprice=0;
     int tempquant=0;
-    */
-    int i=0;
-    while(strcmp(cart->cartItems[i].itemName, "none")!=0)
-    {
-        i++;
+    int i=-1;
+    int j=0;
+    printf("ADD ITEM TO CART\n");
+    printf("Enter the item name:\n");
+    scanf(" %s", item.itemName);
+    fflush(stdin);
+    printf("Enter the item description:\n");
+    scanf(" %s", item.itemDescription);
+    printf("Enter the item price:\n");
+    scanf(" %d", &tempprice);
+    printf("Enter the item quantity:\n");
+    scanf(" %d", &tempquant);
+    item.itemPrice=tempprice;
+    item.itemQuantity=tempquant;
 
+    while(i==-1)
+    {
+
+        
+        if(strcmp(cart.cartItems[j].itemName, "none")==0)
+        {
+            i=i-1;
+            j=j-1;
+        }
+        j++;
     }
-    cart->cartItems[i]=*item;
-    return *cart;
+
+    cart.cartItems[j]=item;
+
+    fflush(stdin);
+    
+
+    return cart;
 }
 ///////////////////////////////////////////////
 ShoppingCart RemoveItem(char itemName[50],struct ShoppingCart * cart )
 {
     int i=0;
-    int flag=0;
-    while(i<MAX)
+    int flag=-1;
+    while((flag==-1)&&(i!=(MAX-1)))
     {
         if(strcmp(itemName, cart->cartItems[i].itemName)==0)
         {
             MakeItemBlank(&cart->cartItems[i]);
             flag=i;
+            
+        }
+        else
+        {
             i++;
         }
+
     }
+        if(flag==-1) 
+        {
+            printf("Item not found in cart. Nothing removed.\n");
+        }
+        else if(flag!=-1)
+        {
+        while(i<MAX-1)   //maybe need to change to just MAX
+            {
+
+            cart->cartItems[i]=cart->cartItems[i+1];
+            i++;
+            }
+        }
+
     return *cart;
 }
 
