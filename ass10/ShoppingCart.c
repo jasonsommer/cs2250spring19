@@ -27,17 +27,23 @@
 // Main Function
 // Function Definitions
 void PrintTotal(const ShoppingCart cart)
-{
+{ 
+    int flag=0;
     printf("%s's Shopping Cart - %s\n", cart.customerName, cart.currentDate);
     printf("Number of Items: %d\n\n", GetNumItemsInCart(cart));
     for(int i=0; i<MAX; i++)
     {
         if(cart.cartItems[i].itemQuantity!= 0)
         {
+            flag++;
             printf("%s %d @ $%d = $%d\n", cart.cartItems[i].itemName, cart.cartItems[i].itemQuantity, 
                     cart.cartItems[i].itemPrice, cart.cartItems[i].itemPrice * cart.cartItems[i].itemQuantity);
         }
     }
+        if(flag==0)
+        {
+            printf("SHOPPING CART IS EMPTY\n");
+        }
     printf("\nTotal: $%d\n", GetCostOfCart(cart));
 
     return;
