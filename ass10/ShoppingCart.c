@@ -79,6 +79,7 @@ void PrintMenu(struct ShoppingCart cart)
     printf("i - Output items' descriptions\n");
     printf("o - Output shopping cart\n");
     printf("q - Quit\n\n");
+    wrong:
     printf("Choose an option:\n");
     scanf(" %c", &userInput);
 
@@ -113,6 +114,12 @@ void PrintMenu(struct ShoppingCart cart)
     else if(userInput=='q')//quit
     {
         break;
+    }
+    else
+    {
+        fflush(stdin);
+        getchar();
+        goto wrong;
     }
 
     
