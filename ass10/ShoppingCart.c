@@ -71,6 +71,7 @@ void PrintMenu(struct ShoppingCart cart)
     char userInput='-';
     while(1)///////////////update when done with remaining functions
     {
+
     printf("\nMENU\n");
     printf("a - Add item to cart\n");
     printf("r - Remove item from cart\n");
@@ -80,11 +81,6 @@ void PrintMenu(struct ShoppingCart cart)
     printf("q - Quit\n\n");
     printf("Choose an option:\n");
     scanf(" %c", &userInput);
-    while((userInput!='a')||(userInput!='r')||(userInput!='c')||(userInput!='i')
-           ||(userInput!='o')||(userInput!='q') )
-    {
-    scanf(" %c", &userInput);
-    }
 
     if(userInput=='a')//add item to the cart
     {
