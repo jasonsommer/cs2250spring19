@@ -100,7 +100,7 @@ void PrintMenu(struct ShoppingCart cart)
     }
     else if(userInput=='c')//change item quantity
     {
-        ModifyItem();
+        ModifyItem(cart.cartItems[0], &cart);
     }
     else if(userInput=='i')//output items descriptions
     {
@@ -180,18 +180,49 @@ ShoppingCart RemoveItem(char itemName[50],struct ShoppingCart * cart )
     return *cart;
 }
 
-void ModifyItem()
+ShoppingCart ModifyItem(struct ItemToPurchase item, struct ShoppingCart * cart)
 {
-    return;
+    //ItemToPurchase newer;
+    int inttemp;
+    printf("CHANGE ITEM QUANTITY\n");
+    printf("Enter the item name:\n");
+        fflush(stdin);
+        getchar();
+        char tomove[50]="-";
+        scanf("%[^\n]", tomove);
+     printf("Enter the new quantity:\n");
+     scanf(" %d", &inttemp);
+
+    int i=0;
+    int flag=-1;
+    while((flag==-1)&&(i!=(MAX-1)))
+    {
+        if(strcmp(tomove, cart->cartItems[i].itemName)==0)
+        {
+            cart->cartItems[i].itemQuantity=inttemp;
+            flag=i;
+            
+        }
+        else
+        {
+            i++;
+        }
+
+    }
+        if(flag==-1) 
+        {
+            printf("Item not found in cart. Nothing modified.\n");
+        }
+
+
+    return *cart;
 }
 int GetNumItemsInCart(struct ShoppingCart cart)
 {
  int total=0;
- for(int i=0; i<MAX; i++)
+ for(int i=0; i<=MAX; i++)
  {
-     int tempquant=0;
-     tempquant=cart.cartItems[i].itemQuantity;
-     total=total+tempquant;
+     total=total+cart.cartItems[i].itemQuantity;
 
  }
 
