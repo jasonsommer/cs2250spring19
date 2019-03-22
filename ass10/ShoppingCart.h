@@ -27,15 +27,15 @@ typedef struct ShoppingCart
     char customerName[100];
     char currentDate[100];
     int cartSize;
-    struct ItemToPurchase cartItems[10];
+    struct ItemToPurchase cartItems[100];
 }ShoppingCart;
 void PrintTotal(const ShoppingCart cart);
 ///////////////////////////////////////////////////
 //////////////////////////////////////////////////////
 void PrintDescriptions(const ShoppingCart *cart);
-void PrintMenu();
+void PrintMenu(struct ShoppingCart cart);
 //////////////////////////////////////////
-ShoppingCart AddItem(struct ItemToPurchase item, struct ShoppingCart *cart);
+ShoppingCart AddItem(struct ItemToPurchase item, struct ShoppingCart older);
 /////////////////////////////////////////////
 
 ShoppingCart RemoveItem(char itemName[50],struct ShoppingCart * cart );
