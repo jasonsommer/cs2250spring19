@@ -22,7 +22,7 @@
 typedef struct ContactNode//is this the header node?
 {
      char contactName[50];
-     char contactPhone[50];
+     char contactPhoneNum[50];
      struct ContactNode* nextNodePtr;
 }ContactNode;
 

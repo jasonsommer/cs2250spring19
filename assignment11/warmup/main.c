@@ -41,11 +41,11 @@ int main(int argc, char* argv[])
         fgets(temp.contactName, 50, stdin);
         temp.contactName[strlen(temp.contactName)-1]='\0';
         printf("Enter phone number:\n");
-        fgets(temp.contactPhone, 50, stdin);
-        temp.contactPhone[strlen(temp.contactPhone)-1]='\0';
-        printf("You entered: %s, %s\n\n", temp.contactName, temp.contactPhone);
+        fgets(temp.contactPhoneNum, 50, stdin);
+        temp.contactPhoneNum[strlen(temp.contactPhoneNum)-1]='\0';
+        printf("You entered: %s, %s\n\n", temp.contactName, temp.contactPhoneNum);
         person[i]=(ContactNode*)malloc(sizeof(ContactNode));
-        *person[i]=CreateContactNode(person[i], temp.contactName, temp.contactPhone, NULL);
+        *person[i]=CreateContactNode(person[i], temp.contactName, temp.contactPhoneNum, NULL);
         
         }
     InsertContactAfter(person[0], person[1]);

@@ -27,7 +27,7 @@ ContactNode CreateContactNode(struct ContactNode* contact, char name[50], char n
 {
     
 strcpy(contact->contactName, name);
-strcpy(contact->contactPhone, number);
+strcpy(contact->contactPhoneNum, number);
 contact->nextNodePtr=address;
 
 
@@ -55,7 +55,7 @@ void PrintContactNode(const ContactNode* contact)
 {
 
     printf("Name: %s\n", contact->contactName); //may need to fix how this handles the new lines
-    printf("Phone number: %s\n\n", contact->contactPhone);//same as above
+    printf("Phone number: %s\n\n", contact->contactPhoneNum);//same as above
 
     return;
 }
