@@ -48,12 +48,10 @@ int main(int argc, char* argv[])
         *person[i]=CreateContactNode(person[i], temp.contactName, temp.contactPhone, NULL);
         
         }
-
-for(int i=0; i<=2; i++)
-{
-    InsertContactAfter(person[i], person[i+1]);
-}
-
+    InsertContactAfter(person[0], person[1]);
+    InsertContactAfter(person[1], person[2]);
+    
+    
     printf("CONTACT LIST\n");
     PrintContactNode(person[0]);
     PrintContactNode(person[1]);
