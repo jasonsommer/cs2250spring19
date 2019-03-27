@@ -26,26 +26,39 @@
 // Main Function
 int main(int argc, char* argv[])
 {
-   ContactNode* person1 = NULL;
-    ContactNode* person2 = NULL;
-    ContactNode* person3 = NULL;
-    int i=1;
-    person1= (ContactNode*)malloc(sizeof(ContactNode));
-    *person1=CreateContactNode(person1, i);
-    i++;
-    person2= (ContactNode*)malloc(sizeof(ContactNode));
-    *person2=CreateContactNode(person2, i);
-    i++;
-    person3= (ContactNode*)malloc(sizeof(ContactNode));
-    *person3=CreateContactNode(person3, i);
+   ContactNode* person[3] = {NULL, NULL, NULL};
+    //ContactNode* person2 = NULL;
+    //ContactNode* person3 = NULL;
 
-    InsertContactAfter(person1, person2);
-    InsertContactAfter(person1, person2);
 
-    printf("CONTACTLIST\n");
-    PrintContactNode(person1);
-    PrintContactNode(person2);
-    PrintContactNode(person3);
+    
+        for(int i=0; i<=2; i++)
+        {
+
+        ContactNode temp;
+        printf("Person %d\n", i+1);
+        printf("Enter name:\n");
+        fgets(temp.contactName, 50, stdin);
+        temp.contactName[strlen(temp.contactName)-1]='\0';
+        printf("Enter phone number:\n");
+        fgets(temp.contactPhone, 50, stdin);
+        temp.contactPhone[strlen(temp.contactPhone)-1]='\0';
+        printf("You entered: %s, %s\n\n", temp.contactName, temp.contactPhone);
+        person[i]=(ContactNode*)malloc(sizeof(ContactNode));
+        *person[i]=CreateContactNode(person[i], temp.contactName, temp.contactPhone, NULL);
+        
+        }
+
+for(int i=0; i<=2; i++)
+{
+    InsertContactAfter(person[i], person[i+1]);
+}
+
+    printf("CONTACT LIST\n");
+    PrintContactNode(person[0]);
+    PrintContactNode(person[1]);
+    PrintContactNode(person[2]);
+
 
 
 

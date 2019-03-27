@@ -27,7 +27,7 @@ typedef struct ContactNode//is this the header node?
 }ContactNode;
 
 
-ContactNode CreateContactNode(struct ContactNode* contact, int i);
+ContactNode CreateContactNode(struct ContactNode* contact, char name[], char number[], ContactNode* address);
 void InsertContactAfter(ContactNode* contact, ContactNode* nextcontact);
 ContactNode* GetNextContact(ContactNode* contact);
 void PrintContactNode(const ContactNode* contact);

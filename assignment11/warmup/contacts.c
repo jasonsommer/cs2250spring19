@@ -23,25 +23,24 @@
 
 // Function Definitions
 
-ContactNode CreateContactNode(struct ContactNode* contact, int i)
+ContactNode CreateContactNode(struct ContactNode* contact, char name[50], char number[50], ContactNode* address)
 {
     
-        ContactNode temp;
-        printf("Person %d\n", i);
-        printf("Enter name:\n");
-        fgets(temp.contactName, 50, stdin);
-        temp.contactName[strlen(temp.contactName)-1]='\0';
-        printf("Enter the phone number:\n");
-        fgets(temp.contactPhone, 50, stdin);
-        temp.contactPhone[strlen(temp.contactPhone)-1]='\0';
-        printf("You entered: %s, %s\n\n", temp.contactName, temp.contactPhone);
+strcpy(contact->contactName, name);
+strcpy(contact->contactPhone, number);
+contact->nextNodePtr=address;
+
+
+
+
+
     
         
-        return temp;
+        return *contact;
 }
 void InsertContactAfter(ContactNode* contact, ContactNode* nextcontact)
 {
-    ContactNode* tmpNext =NULL;
+    ContactNode* tmpNext = NULL;
 
     tmpNext = contact->nextNodePtr;
     contact->nextNodePtr = nextcontact;
