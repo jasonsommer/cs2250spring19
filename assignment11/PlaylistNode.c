@@ -55,7 +55,7 @@ void InsertPlaylistNodeAfter(PlaylistNode* thisNode, PlaylistNode* newNode)
     return;
 }
 ////////////////////////////////////////////////////////////////////////////////
-void SetNextPlaylistNodeAfter(PlaylistNode* thisNode, PlaylistNode* newNode)
+void SetNextPlaylistNode(PlaylistNode* thisNode, PlaylistNode* newNode)
 {
     // 1) set the thisNode->NextNodeptr to newNode
     // should be one or two lines of code
