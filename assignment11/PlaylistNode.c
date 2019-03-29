@@ -90,7 +90,7 @@ void PrintMenuOptions()
     printf("t - Output total time of playlist (in seconds)\n");
     printf("o - Output full playlist\n");
     printf("q - Quit\n\n");
-    printf("Choose an option:\n");
+    printf("Choose an option:");
 
     return;
 }

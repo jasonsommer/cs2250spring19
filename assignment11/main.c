@@ -135,7 +135,7 @@ void PrintMenu(char playlistTitle[])
                // {
                 
 
-                        printf("\"%s\" removed\n\n", temp.songName);
+                        printf("\"%s\" removed.\n\n", temp.songName);
                         songQuant--;
                         
                         
@@ -164,7 +164,7 @@ void PrintMenu(char playlistTitle[])
                 
                 while(songCurrent != NULL)
                 {
-                    if(strcmp(temp.uniqueID, songCurrent->songName)==0)
+                    if(strcmp(temp.uniqueID, songCurrent->artistName)==0)
                     {
 
                         PrintPlaylistNode(songCurrent);
@@ -191,6 +191,7 @@ void PrintMenu(char playlistTitle[])
                printf("%s - OUTPUT FULL PLAYLIST\n", playlistTitle);
                int i = 1;
                 if(songQuant==0)
+
                 {
                     printf("Playlist is empty\n\n");
                 }
@@ -199,7 +200,7 @@ void PrintMenu(char playlistTitle[])
                     songCurrent=songHead;
                     while(songCurrent != NULL)
                     {
-                        printf("%d\n", i);
+                        printf("%d.\n", i);
                         PrintPlaylistNode(songCurrent);
                         printf("\n");
                         songCurrent=GetNextPlaylistNode(songCurrent);
