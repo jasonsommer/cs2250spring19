@@ -110,3 +110,48 @@ int NumberOfSongs(PlaylistNode* thisNode[])
 
 return numSongs;
 }
+///////////////////////////////////////////////////////
+PlaylistNode * delete_item(PlaylistNode * curr, char x[MAX])
+{
+    PlaylistNode* next;
+    if(curr == NULL)
+            {
+           // printf("not found\n");
+            return NULL;
+            }
+        else if(strcmp(curr->uniqueID, x)==0)
+            {
+            next = curr->nextNodeptr;
+            free(curr);
+            return next;
+            }
+        else
+            {
+            curr->nextNodeptr= delete_item(curr->nextNodeptr, x);
+            return curr;
+            }
+ }
+///////////////////////////////////////
+/*
+char getName(PlaylistNode * thisNode, char x[MAX])
+{
+    char name[MAX];
+
+
+    while(thisNode!=NULL)
+    {
+        if(strcmp(thisNode->uniqueID, x)==0)
+        {
+            strcpy(name, thisNode->songName);
+        }
+        thisNode=GetNextPlaylistNode(thisNode);
+    }
+
+
+
+return ;
+}
+    */
+
+
+
