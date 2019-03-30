@@ -59,7 +59,8 @@ void SetNextPlaylistNode(PlaylistNode* thisNode, PlaylistNode* newNode)
 {
     // 1) set the thisNode->NextNodeptr to newNode
     // should be one or two lines of code
-    newNode=thisNode->nextNodeptr;
+    //newNode=thisNode->nextNodeptr;
+    thisNode->nextNodeptr=newNode;
     return;
 }
 ///////////////////////////////////////////////////////////////////////////////
