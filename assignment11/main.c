@@ -173,9 +173,9 @@ start:
                 PlaylistNode* changer=NULL;
                 PlaylistNode* prechanger=NULL;
                 PlaylistNode* another=NULL;
-                printf("Enter song's current position:");
+                printf("Enter song's current position:\n");
                 scanf(" %d", &thissong);
-                printf("Enter new position for song:");
+                printf("Enter new position for song:\n");
                 scanf(" %d", &nextsong);
 
 
@@ -208,6 +208,7 @@ start:
                 }
                 changer = songCurrent;
                 //PrintPlaylistNode(songCurrent);
+                printf("\"%s\" moved to position %d\n", songCurrent->songName, nextsong);
 
                 if((nextsong<=1)&&(songCurrent!=songHead)) //dont touch
                 {
@@ -223,7 +224,7 @@ start:
                         if(songCurrent==songHead)//dont touch
                             {
                                 
-                                for(int p =1; p+1<nextsong+1; p++)
+                                for(int p =1; p<nextsong; p++)
                                 {
                                     songCurrent=GetNextPlaylistNode(songCurrent);
                                 }
@@ -240,7 +241,9 @@ start:
                             {
                                 songCurrent=GetNextPlaylistNode(songCurrent);
                             }
-                            prechanger->nextNodeptr=songCurrent;
+                            //prechanger->nextNodeptr=songCurrent;
+                            SetNextPlaylistNode(prechanger, GetNextPlaylistNode(changer));
+
                             InsertPlaylistNodeAfter(songCurrent, changer);
 
                             
