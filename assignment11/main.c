@@ -119,6 +119,18 @@ void PrintMenu(char playlistTitle[])
                 fgets(temp.uniqueID, 50, stdin);
                 temp.uniqueID[strlen(temp.uniqueID)-1]='\0';
                 songCurrent=songHead;
+                
+                if(strcmp(temp.uniqueID, songHead->uniqueID)==0)
+                {
+
+                        printf("\"%s\" removed.\n\n", songHead->songName);
+
+                    songHead=GetNextPlaylistNode(songHead);
+
+
+                }
+                else
+                {
     while(songCurrent!=NULL)
     {
         if(strcmp(songCurrent->uniqueID, temp.uniqueID)==0)
@@ -131,11 +143,14 @@ void PrintMenu(char playlistTitle[])
                 songHead=delete_item(songHead, temp.uniqueID);
 
                 
+
+                
                 //while(songCurrent != NULL)
                // {
                 
 
                         printf("\"%s\" removed.\n\n", temp.songName);
+                }
                         songQuant--;
                         
                         
@@ -156,6 +171,7 @@ void PrintMenu(char playlistTitle[])
                 //getchar();
                 printf("OUTPUT SONGS BY SPECIFIC ARTIST\n");
                 printf("Enter artist's name:\n");
+                int k = 1;
 
                 fgets(temp.uniqueID, 50, stdin);
                 temp.uniqueID[strlen(temp.uniqueID)-1]='\0';
@@ -167,10 +183,16 @@ void PrintMenu(char playlistTitle[])
                     if(strcmp(temp.uniqueID, songCurrent->artistName)==0)
                     {
 
+                        printf("%d.\n", k);
+
                         PrintPlaylistNode(songCurrent);
                         printf("\n");
                     }
+                    //printf("%d", k);
+                    k++;
+
                     songCurrent=GetNextPlaylistNode(songCurrent);
+                    
                 }
                 goto start;
 
