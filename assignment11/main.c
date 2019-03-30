@@ -46,10 +46,10 @@ void PrintMenu(char playlistTitle[])
 {
     //PlaylistNode * song[MAX];
     PlaylistNode *songHead = NULL;
-    //PlaylistNode *songTail = NULL;
+    PlaylistNode *songTail = NULL;
     PlaylistNode *songCurrent = NULL;
     PlaylistNode *songLast = NULL;
-    // PlaylistNode *songNext = NULL;  //really should be named last
+   // PlaylistNode *songNext = NULL;  //really should be named last
     PlaylistNode temp;
     //create a bunch of temp variables: chars, ints, and PlaylistNode(pointers)
     char menuOp=' ';
@@ -163,7 +163,7 @@ start:
                 //exitwhile:
 
 
-
+//////////////////////////////////////////////////////////////////////////
             case 'c' :// Prompt user for new song location
                 printf("CHANGE POSITION OF SONG\n");
                 int thissong = 0;
@@ -184,11 +184,8 @@ start:
                 {
                     numsongs++;
                     songCurrent=GetNextPlaylistNode(songCurrent);
-                    /*if(GetNextPlaylistNode(songCurrent)==NULL)
-                    {
-                        songTail=songCurrent;
-                    }*/
                 }
+                songTail=songCurrent;
                // printf("number of sungs: %d\n", numsongs);
                 if(nextsong>numsongs)
                 {
@@ -212,34 +209,71 @@ start:
                 changer = songCurrent;
                 //PrintPlaylistNode(songCurrent);
 
-                if(nextsong>=0)
+                if((nextsong<=1)&&(songCurrent!=songHead)) //dont touch
                 {
 
                     prechanger->nextNodeptr=songCurrent->nextNodeptr;
                     changer=songHead;
                     songHead=songCurrent;
                     songHead->nextNodeptr=changer;
-                }
-                  else if(difference>0)
+                }//dont touch
+
+                else if(difference>0) //TODO: fix moving up songs
                     {
-                        if(songCurrent==songHead)
+                        if(songCurrent==songHead)//dont touch
                             {
                                 
-                                for(int p =1; p<nextsong; p++)
+                                for(int p =1; p+1<nextsong+1; p++)
                                 {
                                     songCurrent=GetNextPlaylistNode(songCurrent);
                                 }
                                 another=GetNextPlaylistNode(songHead);
 
-                                InsertPlaylistNodeAfter(songCurrent, songHead);
+                                InsertPlaylistNodeAfter(songCurrent, changer);
                                 songHead=another;
 
-
-
+                            }//dont touch
+                        else
+                        {
+                            songCurrent=songHead;
+                            for(int q =1; q<nextsong; q++)
+                            {
+                                songCurrent=GetNextPlaylistNode(songCurrent);
                             }
+                            prechanger->nextNodeptr=songCurrent;
+                            InsertPlaylistNodeAfter(songCurrent, changer);
+
+                            
+
+                        }
+                        
+
+                        
                     }
+                
+                else if(difference<0)
+                {
+                    songCurrent=songHead;
+                    for(int q =1; q+1<nextsong; q++)
+                    {
+                        songCurrent=GetNextPlaylistNode(songCurrent);
+
+                    }
+                    if(changer==songTail)
+                    {
+                        SetNextPlaylistNode(prechanger, NULL);
+                    }
+                    else
+                    {
+                        SetNextPlaylistNode(prechanger, GetNextPlaylistNode(changer));
+                    }
+                    InsertPlaylistNodeAfter(songCurrent, changer);
+
+                }
+                
 
                 goto start;
+                printf("%s", songTail->songName);
 
 
 
