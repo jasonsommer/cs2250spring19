@@ -46,7 +46,7 @@ void PrintMenu(char playlistTitle[])
 {
     //PlaylistNode * song[MAX];
     PlaylistNode *songHead = NULL;
-    PlaylistNode *songTail = NULL;
+    //PlaylistNode *songTail = NULL;
     PlaylistNode *songCurrent = NULL;
     PlaylistNode *songLast = NULL;
     // PlaylistNode *songNext = NULL;  //really should be named last
@@ -177,7 +177,6 @@ start:
                 scanf(" %d", &thissong);
                 printf("Enter new position for song:");
                 scanf(" %d", &nextsong);
-                difference= nextsong-thissong;
 
 
                 songCurrent=songHead;
@@ -185,16 +184,17 @@ start:
                 {
                     numsongs++;
                     songCurrent=GetNextPlaylistNode(songCurrent);
-                    if(GetNextPlaylistNode(songCurrent)==NULL)
+                    /*if(GetNextPlaylistNode(songCurrent)==NULL)
                     {
                         songTail=songCurrent;
-                    }
+                    }*/
                 }
                // printf("number of sungs: %d\n", numsongs);
                 if(nextsong>numsongs)
                 {
                     nextsong=numsongs;
                 }
+                difference= nextsong-thissong;
 
 
 
@@ -212,7 +212,7 @@ start:
                 changer = songCurrent;
                 //PrintPlaylistNode(songCurrent);
 
-                if(nextsong==0)
+                if(nextsong>=0)
                 {
 
                     prechanger->nextNodeptr=songCurrent->nextNodeptr;
@@ -238,10 +238,6 @@ start:
 
                             }
                     }
-                else if(difference<0)
-                {
-
-                }
 
                 goto start;
 
