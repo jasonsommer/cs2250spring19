@@ -208,7 +208,7 @@ start:
                 }
                 changer = songCurrent;
                 //PrintPlaylistNode(songCurrent);
-                printf("\"%s\" moved to position %d\n", songCurrent->songName, nextsong);
+                printf("\"%s\" moved to position %d\n\n", songCurrent->songName, nextsong);
 
                 if((nextsong<=1)&&(songCurrent!=songHead)) //dont touch
                 {
