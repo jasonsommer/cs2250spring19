@@ -5,7 +5,7 @@
 
 typedef struct author
 {
-   char name[80];
+   char name[21];
    int books;
 } author;
 
@@ -54,7 +54,18 @@ for(int m=0; m!=l; m++)
    {
       if(Input[m].books!=0)
       {
-   printf("%-20s|%23d\n", Input[m].name, Input[m].books);
+          int b = 0;
+      while((isalpha(Input[m].name[b])!=0)||Input[m].name[b]==' ')
+      {
+          printf("%-c", Input[m].name[b]);// temp.name);
+          b++;
+      }
+      while(b<20)
+      {
+          printf(" ");
+          b++;
+      }
+   printf("|%23d\n",Input[m].books);
       }
    }
 }
@@ -128,8 +139,12 @@ author getString()
       
      
       temp=splitter(tempInput);
-      printf("Data string: %s\n", temp.name);
-      printf("Data integer: %d\n\n", temp.books);
+      printf("Data string: ");
+      for(int b = 0; (isalpha(temp.name[b])!=0)||temp.name[b]==' '; b++)
+      {
+          printf("%c", temp.name[b]);// temp.name);
+      }
+      printf("\nData integer: %d\n\n", temp.books);
       
       return splitter(tempInput);
    }
@@ -181,7 +196,7 @@ int commaStat(char info[80])
 author splitter(char input[80])
 {
    author temp;
-   char tempchar[80];
+   char tempchar[21];
    int i=0;
    int j=0;
    int k=0;
@@ -198,7 +213,10 @@ author splitter(char input[80])
          k++;
       }
    }
-   temp.books=atoi(tempchar);
+   temp.name[strlen(temp.name)]='\0';
+      temp.books=atoi(tempchar);
+      fflush(stdin);
+
    return temp;
    
 }
