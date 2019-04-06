@@ -55,7 +55,7 @@ for(int m=0; m!=l; m++)
       if(Input[m].books!=0)
       {
           int b = 0;
-      while((isalpha(Input[m].name[b])!=0)||Input[m].name[b]==' ')
+      while((isalpha(Input[m].name[b])!=0)||Input[m].name[b]==' '||Input[m].name[b]=='.')
       {
           printf("%-c", Input[m].name[b]);// temp.name);
           b++;
@@ -66,6 +66,35 @@ for(int m=0; m!=l; m++)
           b++;
       }
    printf("|%23d\n",Input[m].books);
+      }
+   }
+}
+printf("\n");
+
+for(int m=0; m!=l; m++)
+{
+   if((Input[m].books!=-1))
+   {
+      if(Input[m].books!=0)
+      {
+          int b = 0;
+          int x = 0;
+          while((20-strlen(Input[m].name)-x)>0)
+          {
+             printf(" ");
+             x++;
+          }
+      while((isalpha(Input[m].name[b])!=0)||Input[m].name[b]==' '||Input[m].name[b]=='.')
+      {
+          printf("%c", Input[m].name[b]);// temp.name);
+          b++;
+      }
+   printf(" ");
+   for(int a = 0; a<Input[m].books; a++)
+   {
+      printf("*");
+   }
+   printf("\n");
       }
    }
 }
@@ -140,7 +169,7 @@ author getString()
      
       temp=splitter(tempInput);
       printf("Data string: ");
-      for(int b = 0; (isalpha(temp.name[b])!=0)||temp.name[b]==' '; b++)
+      for(int b = 0; (isalpha(temp.name[b])!=0)||temp.name[b]==' '||temp.name[b]=='.'; b++)
       {
           printf("%c", temp.name[b]);// temp.name);
       }
