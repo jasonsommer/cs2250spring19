@@ -29,6 +29,12 @@ using namespace std;
 // Main Function
 int main(int argc, char* argv[])
 {
+    //create object with default values
+    Movie m1;
+    m1.info();
+    //Create object with some values
+    Movie m2("Rambo", 1991, 4);
+    m2.info(); 
 
     return 0;
 }
