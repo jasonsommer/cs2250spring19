@@ -52,7 +52,7 @@ ItemToPurchase first(temp, tempprice, tempquant);
 cin.ignore();
 
 
-cout << "Item 2"<< endl << "Enter the item name:" << endl;
+cout << endl<<"Item 2"<< endl << "Enter the item name:" << endl;
 getline(cin, temp);
 cout << "Enter the item price:" << endl;
 cin >> tempprice;
@@ -61,7 +61,7 @@ cin >> tempquant;
 
 ItemToPurchase second(temp, tempprice, tempquant);
 
-cout << "TOTAL COST" << endl
+cout <<endl<< "TOTAL COST" << endl
      << first.GetName()<< " " << first.GetQuantity()<< " @ $"
      << first.GetPrice()<< " = $"
      << first.GetPrice() * first.GetQuantity()<< endl
