@@ -26,14 +26,16 @@ class ItemToPurchase //name
 {
     private:
         string itemName;
+        string description;
         int itemPrice;
         int itemQuantity;
+
 
 
     public:
 
         //initiators
-        ItemToPurchase(string name,int itemPrice, int itemQuantity); 
+        ItemToPurchase(string name, string description, int itemPrice, int itemQuantity); 
         ItemToPurchase();
         ~ItemToPurchase();
         
@@ -41,14 +43,18 @@ class ItemToPurchase //name
         void SetName(string name);
         void SetPrice(int price);
         void SetQuantity(int quant);
-
+        void SetDescription(string descrition);
+        void PrintItemCost()const;
+        void PrintItemDescription()const;
 
 
 
         //accessors
         string GetName()const; 
+        string GetDescription()const;
         int GetPrice()const;
         int GetQuantity()const;
+
 
 };
 

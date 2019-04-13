@@ -33,17 +33,34 @@ using namespace std;
 // Function Prototypes
 
 // Main Function
-ItemToPurchase::ItemToPurchase(string name,int itemPrice, int itemQuantity)
+ItemToPurchase::ItemToPurchase(string name, string description, int itemPrice, int itemQuantity)
 {
 SetName(name);
 SetPrice(itemPrice);
 SetQuantity(itemQuantity);
 }
+//initializer
 ItemToPurchase::ItemToPurchase()
 {
     SetName("none");
+    SetDescription("none");
     SetPrice(0);
     SetQuantity(0);
+}
+
+
+
+void ItemToPurchase::PrintItemCost() const
+{
+    cout<< GetName() << " " << GetQuantity() << " @ $" << GetPrice()
+        << " = $" << GetQuantity()*GetPrice()<< endl;
+
+}
+
+void ItemToPurchase::PrintItemDescription() const
+{
+    cout<< GetName() << ": " << GetDescription() << endl;
+
 }
 
 //destructor
@@ -54,6 +71,11 @@ ItemToPurchase::~ItemToPurchase()
 void ItemToPurchase::SetName(string name)
 {
     this->itemName=name;
+}
+
+void ItemToPurchase::SetDescription(string description)
+{
+    this->description=description;
 }
 
 void ItemToPurchase::SetPrice(int price)
@@ -69,6 +91,11 @@ void ItemToPurchase::SetQuantity(int quantity)
 string ItemToPurchase::GetName() const
 {
     return itemName;
+}
+
+string ItemToPurchase::GetDescription() const
+{
+    return description;
 }
 
 int ItemToPurchase::GetPrice() const
