@@ -32,8 +32,8 @@ void PrintMenu(ShoppingCart userCart);
 void PrintOptions();
 int main(int argc, char* argv[])
 {
-    ShoppingCart userCart;
-    userCart();
+    char userInput = '-';
+    //ShoppingCart userCart;
     string tempName;
     string tempDate;
     cout<< "Enter customer's name:" << endl;
@@ -42,7 +42,25 @@ int main(int argc, char* argv[])
     getline(cin, tempDate);
     cout << endl << "Customer name: " << tempName << endl
         << "Today's date: " << tempDate << endl;
-            
+    ShoppingCart userCart(tempName, tempDate);
+    while(userInput!='q')
+    {
+        PrintOptions();
+        cin >> userInput;
+        switch(userInput)
+        {
+            case 'd':
+                break;
+            case 'c':
+                break;
+            case 'i':
+                break;
+            case 'o':
+                break;
+            case 'q':
+                break;
+        }
+    }
 
     return 0;
 }

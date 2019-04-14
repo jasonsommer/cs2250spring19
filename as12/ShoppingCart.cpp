@@ -31,7 +31,7 @@ using namespace std;
 #include "ItemToPurchase.h"
 
         //initiators
-ShoppingCart::ShoppingCart(string customerName, string currentDate,vector<ItemToPurchase> cartItems)
+ShoppingCart::ShoppingCart(string customerName, string currentDate)
 {
     SetName(customerName);
     SetDate(currentDate);

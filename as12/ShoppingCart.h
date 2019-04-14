@@ -33,7 +33,7 @@ class ShoppingCart //name
     public:
 
         //initiators
-        ShoppingCart(string customerName, string currentDate,vector<ItemToPurchase> cartItems); 
+        ShoppingCart(string customerName, string currentDate); 
         ShoppingCart();
         ~ShoppingCart();
         
