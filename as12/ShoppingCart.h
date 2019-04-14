@@ -17,7 +17,48 @@
  */
 #ifndef  SHOPPINGCART__INC__
 #define  SHOPPINGCART__INC__
-    <+DETAILED+>
+#include <vector>
+#include "ItemToPurchase.h"
+
+
+class ShoppingCart //name
+{
+    private:
+        string customerName;
+        string currentDate;
+        vector<ItemToPurchase> cartItems;
+
+
+
+    public:
+
+        //initiators
+        ShoppingCart(string customerName, string currentDate,vector<ItemToPurchase> cartItems); 
+        ShoppingCart();
+        ~ShoppingCart();
+        
+        //mutators
+       void AddItem(ItemToPurchase newItem);
+       void RemoveItem(string item);
+       void ModifyItem(string item);
+
+
+
+        //accessors
+        void SetName(string name);
+        string GetName()const;
+        string GetDate()const;
+        vector<ItemToPurchase> GetVector() const;
+        void SetDate(string date);
+        int GetNumItemsInCart()const;//const vector<ItemToPurchase>& cart);
+        int  GetCostOfCart()const;//const vector<ItemToPurchase>& cart);
+        void PrintTotal()const;
+        void PrintDescriptions()const;
+        void PrintItemTotal(ItemToPurchase item)const;
+       
+
+
+};
 
 #endif /* ----- #ifndef SHOPPINGCART__INC__ ----- */
 

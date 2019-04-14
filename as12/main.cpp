@@ -22,64 +22,41 @@
 
 // For C++ Code
 #include <iostream>
-#include "ItemToPurchase.h"
 using namespace std;
+#include "ShoppingCart.h"
 
 // Function Definitions
 //
-int ItemCost(int price, int quant);
 
-
+void PrintMenu(ShoppingCart userCart);
+void PrintOptions();
 int main(int argc, char* argv[])
 {
-//ItemToPurchase first;
-//ItemToPurchase second;
-
-string temp;
-int tempprice;
-int tempquant;
-
-
-cout << "Item 1"<< endl << "Enter the item name:" << endl;
-getline(cin, temp);
-cout << "Enter the item price:" << endl;
-cin >> tempprice;
-cout << "Enter the item quantity:" << endl;
-cin >> tempquant;
-
-ItemToPurchase first(temp, tempprice, tempquant);
-
-cin.ignore();
-
-
-cout << endl<<"Item 2"<< endl << "Enter the item name:" << endl;
-getline(cin, temp);
-cout << "Enter the item price:" << endl;
-cin >> tempprice;
-cout << "Enter the item quantity:" << endl;
-cin >> tempquant;
-
-ItemToPurchase second(temp, tempprice, tempquant);
-
-cout <<endl<< "TOTAL COST" << endl
-     << first.GetName()<< " " << first.GetQuantity()<< " @ $"
-     << first.GetPrice()<< " = $"
-     << first.GetPrice() * first.GetQuantity()<< endl
-
-     << second.GetName()<<" " <<second.GetQuantity()<< " @ $"
-     << second.GetPrice()<< " = $"
-     << second.GetPrice() * second.GetQuantity() << endl << endl
-
-     <<"Total: $"<<(first.GetPrice()*first.GetQuantity()+second.GetQuantity()*second.GetPrice())<< endl;
-             
+    ShoppingCart userCart;
+    userCart();
+    string tempName;
+    string tempDate;
+    cout<< "Enter customer's name:" << endl;
+    getline(cin, tempName);
+    cout<< "Enter today's date:" << endl;
+    getline(cin, tempDate);
+    cout << endl << "Customer name: " << tempName << endl
+        << "Today's date: " << tempDate << endl;
+            
 
     return 0;
 }
-
-
-
-
-int ItemCost(int price, int quant)
+////////////////////////////////////////////////////////
+void PrintMenu(ShoppingCart userCart)
 {
-    return price*quant;
+}
+
+void PrintOptions()
+{
+    cout<< "Menu" << endl << "a - Add item to cart" << endl
+        << "d - Remove item from cart" << endl
+        << "c - Change item quantity" << endl
+        << "i - Output items' descriptions" << endl
+        << "o - Output shopping cart" << endl
+        << "q - Quit"<< endl << endl << "Choose an option:" << endl;
 }
