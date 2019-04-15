@@ -48,9 +48,10 @@ int main(int argc, char* argv[])
         << "Today's date: " << tempDate << endl;
     ShoppingCart userCart(tempName, tempDate);
    // cin.ignore();
+        PrintOptions();
     while(userInput!='q')
     {
-        PrintOptions();
+        cout << "Choose an option:" << endl;
         cin >> userInput;
         switch(userInput)
         {
@@ -111,10 +112,10 @@ void PrintMenu(ShoppingCart userCart)
 
 void PrintOptions()
 {
-    cout<< "Menu" << endl << "a - Add item to cart" << endl
+    cout<< "MENU" << endl << "a - Add item to cart" << endl
         << "d - Remove item from cart" << endl
         << "c - Change item quantity" << endl
         << "i - Output items' descriptions" << endl
         << "o - Output shopping cart" << endl
-        << "q - Quit"<< endl << endl << "Choose an option:" << endl;
+        << "q - Quit"<< endl << endl;
 }

@@ -46,7 +46,7 @@ class ShoppingCart //name
 
         //accessors
         void SetName(string name);
-        string GetName()const;
+        string GetCustomerName()const;
         string GetDate()const;
         vector<ItemToPurchase> GetVector() const;
         void SetDate(string date);

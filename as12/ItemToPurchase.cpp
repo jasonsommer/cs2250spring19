@@ -37,6 +37,7 @@ ItemToPurchase::ItemToPurchase(string name, string description, int itemPrice, i
 {
 SetName(name);
 SetPrice(itemPrice);
+SetDescription(description);
 SetQuantity(itemQuantity);
 }
 //initializer

@@ -57,7 +57,7 @@ void ShoppingCart::SetName(string name)
 {
     this->customerName=name;
 }
-string ShoppingCart::GetName() const
+string ShoppingCart::GetCustomerName() const
 {
     return customerName;
 }
@@ -117,8 +117,13 @@ void ShoppingCart::ModifyItem(string item)
         //accessors
 int ShoppingCart::GetNumItemsInCart()const//const vector<ItemToPurchase>& cart)
 {
-        return GetVector().size();
-}
+    unsigned int totalCost = 0;
+    for(ItemToPurchase ItemToPurchase : cartItems)
+    {
+        totalCost=totalCost+ItemToPurchase.GetQuantity();
+    }
+    return totalCost;
+ }
 //////////////////////////////////////////////////////////////////////////////
 int ShoppingCart::GetCostOfCart()const //const vector<ItemToPurchase>& cart)
 {
@@ -132,7 +137,7 @@ int ShoppingCart::GetCostOfCart()const //const vector<ItemToPurchase>& cart)
 //////////////////////////////////////////////////////////////////////////////
 void ShoppingCart::PrintTotal()const
 {
-    cout << GetName() <<"'s Shopping Cart - " << GetDate() << endl
+    cout << GetCustomerName() <<"'s Shopping Cart - " << GetDate() << endl
          << "Number of Items: " << GetNumItemsInCart() << endl << endl;   //TODO change back to call the function
     for(unsigned int i = 0; i < cartItems.size(); i++)
     {
@@ -143,7 +148,7 @@ void ShoppingCart::PrintTotal()const
 //////////////////////////////////////////////////////////////////////////////
 void ShoppingCart::PrintDescriptions()const
 {
-    cout << GetName() <<"'s Shopping Cart - " << GetDate() << endl<< endl
+    cout << GetCustomerName() <<"'s Shopping Cart - " << GetDate() << endl<< endl
         << "Item Descriptions" << endl;
 
     for(unsigned int i = 0; i < cartItems.size(); i++)
