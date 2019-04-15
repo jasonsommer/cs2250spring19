@@ -125,7 +125,7 @@ int ShoppingCart::GetCostOfCart()const //const vector<ItemToPurchase>& cart)
     unsigned int totalCost = 0;
     for(ItemToPurchase ItemToPurchase : cartItems)
     {
-        totalCost=totalCost+ItemToPurchase.GetPrice();
+        totalCost=totalCost+(ItemToPurchase.GetPrice()*ItemToPurchase.GetQuantity());
     }
     return totalCost;
 }

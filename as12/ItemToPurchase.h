@@ -43,7 +43,7 @@ class ItemToPurchase //name
         void SetName(string name);
         void SetPrice(int price);
         void SetQuantity(int quant);
-        void SetDescription(string descrition);
+        void SetDescription(string description);
         void PrintItemCost()const;
         void PrintItemDescription()const;
 

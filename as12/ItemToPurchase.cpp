@@ -59,7 +59,7 @@ void ItemToPurchase::PrintItemCost() const
 
 void ItemToPurchase::PrintItemDescription() const
 {
-    cout<< GetName() << ": " << GetDescription() << endl;
+    cout<<GetDescription();
 
 }
 

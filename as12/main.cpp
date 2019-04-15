@@ -36,6 +36,10 @@ int main(int argc, char* argv[])
     //ShoppingCart userCart;
     string tempName;
     string tempDate;
+    string tempstring;
+    string tempdesc;
+    int tempquant;
+    int tempprice;
     cout<< "Enter customer's name:" << endl;
     getline(cin, tempName);
     cout<< "Enter today's date:" << endl;
@@ -43,6 +47,7 @@ int main(int argc, char* argv[])
     cout << endl << "Customer name: " << tempName << endl
         << "Today's date: " << tempDate << endl;
     ShoppingCart userCart(tempName, tempDate);
+   // cin.ignore();
     while(userInput!='q')
     {
         PrintOptions();
@@ -50,12 +55,47 @@ int main(int argc, char* argv[])
         switch(userInput)
         {
             case 'd':
+                cout << "REMOVE ITEM FROM CART" << endl
+                    << "Enter name of item to remove:" << endl;
+                cin.ignore();
+                getline(cin, tempstring);
+                userCart.RemoveItem(tempstring);
+               // cin.ignore();
+                break;
+            case 'a':
+                cout << "ADD ITEM TO CART" << endl
+                    << "Enter the item name:" << endl;
+                cin.ignore();
+                    getline(cin, tempstring);
+                cout << "Enter the item description:" << endl;
+                    getline(cin, tempdesc);
+                cout << "Enter the item price:" << endl;
+                cin >> tempprice;
+                cout << "Enter the item quantity:" << endl;
+                cin >> tempquant;
+
+                userCart.AddItem(ItemToPurchase(tempstring, tempdesc, tempprice, tempquant));
+               
+                cin.ignore();
                 break;
             case 'c':
+                cout << "CHANGE ITEM QUANTITY" << endl
+                    << "Enter the item name:" << endl;
+                cin.ignore();
+                getline(cin, tempstring);
+                userCart.ModifyItem(tempstring);
+                cin.ignore();
+
                 break;
             case 'i':
+                cout << "OUTPUT ITEMS' DESCRIPTIONS" << endl;
+                userCart.PrintDescriptions();
+                cin.ignore();
                 break;
             case 'o':
+                cout << "OUTPUT SHOPPING CART"<< endl;
+                userCart.PrintTotal();
+                cin.ignore();
                 break;
             case 'q':
                 break;
