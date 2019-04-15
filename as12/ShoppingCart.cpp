@@ -113,8 +113,9 @@ void ShoppingCart::ModifyItem(string item)
         //PrintItemTotal(cartItems.at(i));
         if(cartItems.at(i).GetName()==item)
         {
+            flag++;
            cartItems.at(i).SetQuantity(newVal);
-           flag++;
+           //flag++;
         }
     }
     if(flag==-1)
