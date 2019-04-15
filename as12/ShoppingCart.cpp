@@ -104,6 +104,7 @@ void ShoppingCart::RemoveItem(string item)
 void ShoppingCart::ModifyItem(string item)
 {
     int newVal = 0;
+    int flag = -1;
     cout<< "Enter the new quantity:" << endl;
     cin >> newVal;
 
@@ -113,7 +114,12 @@ void ShoppingCart::ModifyItem(string item)
         if(cartItems.at(i).GetName()==item)
         {
            cartItems.at(i).SetQuantity(newVal);
+           flag++;
         }
+    }
+    if(flag==-1)
+    {
+        cout << "Item not found in cart. Nothing modified." << endl << endl;
     }
 
 }
@@ -153,7 +159,7 @@ void ShoppingCart::PrintTotal()const
     {
         cout<< "SHOPPING CART IS EMPTY" << endl;
     }
-    cout << endl << "Total: $" << GetCostOfCart() << endl;
+    cout << endl << "Total: $" << GetCostOfCart() << endl<< endl;
 }
 //////////////////////////////////////////////////////////////////////////////
 void ShoppingCart::PrintDescriptions()const
@@ -165,7 +171,7 @@ void ShoppingCart::PrintDescriptions()const
     {
         cout << cartItems.at(i).GetName() << ": " << cartItems.at(i).GetDescription() << endl;
     }
-    
+    cout << endl;
 }
 //////////////////////////////////////////////////////////////////////////////
 void ShoppingCart::PrintItemTotal(ItemToPurchase item)const

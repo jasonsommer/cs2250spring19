@@ -69,6 +69,7 @@ int main(int argc, char* argv[])
                 cin.ignore();
                 getline(cin, tempstring);
                 userCart.RemoveItem(tempstring);
+                cout << endl;
                // cin.ignore();
                 break;
             case 'a':
@@ -82,6 +83,7 @@ int main(int argc, char* argv[])
                 cin >> tempprice;
                 cout << "Enter the item quantity:" << endl;
                 cin >> tempquant;
+                cout << endl;
 
                 userCart.AddItem(ItemToPurchase(tempstring, tempdesc, tempprice, tempquant));
                
@@ -125,7 +127,7 @@ void PrintOptions()
         << "c - Change item quantity" << endl
         << "i - Output items' descriptions" << endl
         << "o - Output shopping cart" << endl
-        << "q - Quit"<< endl << endl << "Choose an option" << endl;
+        << "q - Quit"<< endl << endl << "Choose an option:" << endl;
 }
 bool validChar(char input)
 {
