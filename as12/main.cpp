@@ -30,6 +30,7 @@ using namespace std;
 
 void PrintMenu(ShoppingCart userCart);
 void PrintOptions();
+bool validChar(char input);
 int main(int argc, char* argv[])
 {
     char userInput = '-';
@@ -45,14 +46,21 @@ int main(int argc, char* argv[])
     cout<< "Enter today's date:" << endl;
     getline(cin, tempDate);
     cout << endl << "Customer name: " << tempName << endl
-        << "Today's date: " << tempDate << endl;
+        << "Today's date: " << tempDate << endl << endl;
     ShoppingCart userCart(tempName, tempDate);
    // cin.ignore();
-        PrintOptions();
     while(userInput!='q')
     {
-        cout << "Choose an option:" << endl;
+        PrintOptions();
+        //cout << "Choose an option:" << endl;
         cin >> userInput;
+        while(validChar(userInput)==0)
+        {
+            cout << "Choose an option:" << endl;
+            cin>>userInput;
+        }
+
+        
         switch(userInput)
         {
             case 'd':
@@ -117,5 +125,16 @@ void PrintOptions()
         << "c - Change item quantity" << endl
         << "i - Output items' descriptions" << endl
         << "o - Output shopping cart" << endl
-        << "q - Quit"<< endl << endl;
+        << "q - Quit"<< endl << endl << "Choose an option" << endl;
+}
+bool validChar(char input)
+{
+    if((input=='a')||(input=='d')||(input=='c')||(input=='i')||(input=='o')||(input=='q'))
+    {
+        return 1;
+    }
+    else
+    {
+        return 0;
+    }
 }

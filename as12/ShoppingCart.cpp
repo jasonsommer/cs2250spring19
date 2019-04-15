@@ -83,12 +83,18 @@ void ShoppingCart::AddItem(ItemToPurchase newItem)
 //////////////////////////////////////////////////////////////////////////////
 void ShoppingCart::RemoveItem(string item)
 {
+    int flag=-1;
     for(unsigned int i = 0; i < cartItems.size(); i++)
     {
         //PrintItemTotal(cartItems.at(i));
         if(cartItems.at(i).GetName()==item)
         {
            cartItems.erase(cartItems.begin( )+i);
+           flag++;
+        }
+        if(flag==-1)
+        {
+            cout<< "Item not found in cart. Nothing removed." << endl;
         }
     }
 
@@ -142,6 +148,10 @@ void ShoppingCart::PrintTotal()const
     for(unsigned int i = 0; i < cartItems.size(); i++)
     {
         PrintItemTotal(cartItems.at(i));
+    }
+    if(GetNumItemsInCart()==0)
+    {
+        cout<< "SHOPPING CART IS EMPTY" << endl;
     }
     cout << endl << "Total: $" << GetCostOfCart() << endl;
 }
