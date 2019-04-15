@@ -92,19 +92,25 @@ void ShoppingCart::RemoveItem(string item)
            cartItems.erase(cartItems.begin( )+i);
            flag++;
         }
+    }
         if(flag==-1)
         {
             cout<< "Item not found in cart. Nothing removed." << endl;
         }
-    }
 
 
 }
+bool ShoppingCart::checkduplicate(string name)const
+{
+    
+return 0;
+}
+
 //////////////////////////////////////////////////////////////////////////////
 void ShoppingCart::ModifyItem(string item)
 {
     int newVal = 0;
-    int flag = -1;
+    int flag = 1;
     cout<< "Enter the new quantity:" << endl;
     cin >> newVal;
 
@@ -113,12 +119,22 @@ void ShoppingCart::ModifyItem(string item)
         //PrintItemTotal(cartItems.at(i));
         if(cartItems.at(i).GetName()==item)
         {
-            flag++;
+           //flag++;
            cartItems.at(i).SetQuantity(newVal);
            //flag++;
         }
     }
-    if(flag==-1)
+    for(unsigned int i = 0; i < cartItems.size(); i++)
+    {
+        //PrintItemTotal(cartItems.at(i));
+        if(cartItems.at(i).GetName()==item)
+        {
+           flag++;
+           //cartItems.at(i).SetQuantity(newVal);
+           //flag++;
+        }
+    }
+    if(flag==1)
     {
         cout << "Item not found in cart. Nothing modified." << endl << endl;
     }

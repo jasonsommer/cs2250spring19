@@ -55,6 +55,7 @@ class ShoppingCart //name
         void PrintTotal()const;
         void PrintDescriptions()const;
         void PrintItemTotal(ItemToPurchase item)const;
+        bool checkduplicate(string name)const;
        
 
 
