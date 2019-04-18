@@ -109,10 +109,22 @@ void AddSong(PlaylistNode*& headNode, PlaylistNode*& tailNode)
 
     cout << "Enter song's length (in seconds):" << endl;
     cin >> songLength;
+newSong = new PlaylistNode(uniqueID, songName, artistName, songLength);
 
-    // Create a new node for playlist with "new" and save it in newSong pointer
-    // ...
+if( headNode==0)
+{
+headNode = newSong;
+tailNode = newSong;
+newSong = 0;
+}
+else
+{
+    tailNode->SetNext(newSong);
+    tailNode = newSong;
+    
 
+}
+    // Create a new node for playlist with "new" and save it in newSong poi
     // If song is first in playlist, update head/tail
     // ....
     // Otherwise insert to end of playlist and update tail
@@ -132,11 +144,13 @@ void DeleteSong(PlaylistNode*& headNode, PlaylistNode*& tailNode, PlaylistNode*&
 
     // Count number of nodes in list
     songNode = headNode;
+    int nodeNum;
 
     // songNode is the song to be removed
     while ((songNode != 0) && !(songNode->GetID() == uniqueID)) 
     {
         songNode = songNode->GetNext();
+        nodeNum++;
     }
 
     if (songNode == 0 ) 
@@ -147,12 +161,23 @@ void DeleteSong(PlaylistNode*& headNode, PlaylistNode*& tailNode, PlaylistNode*&
     else 
     {
         // Remove song at songPosition from list
+        if(songNode==headNode->GetNext())
+        {
+            PlaylistNode *temp = new PlaylistNode;
+            temp = headNode;
+            headNode = headNode->GetNext();
+
+            delete temp;
+            return;
+        }
 
         // IF songPosition is 1, list head is removed
         // ...
         // ...
         // ELSE prevNode refers to node before the songNode
-        // ....
+        else
+        {
+
 
             // prevNode updated so next is the node following songNode
             // ...
@@ -231,6 +256,9 @@ void ChangeSongPosition(PlaylistNode*& headNode, PlaylistNode*& tailNode, Playli
     }
     return;
 }
+//////////////////////////////////////////////////////////////////////
+//DONE DO NOT TOUCH UNLESS ERROR
+//////////////////////////////////////////////////////////////////////
 
 
 void OutputSongsBySpecificArtist(PlaylistNode*& headNode, PlaylistNode*& tailNode, 
@@ -255,16 +283,20 @@ void OutputSongsBySpecificArtist(PlaylistNode*& headNode, PlaylistNode*& tailNod
         // Output songs with matching artist name
         if (currNode->GetArtistName() == artistName) 
         {
-//            cout << numNodes << "." << endl;
+            cout << numNodes << "." << endl;
             // Print playlist information
-//            cout << endl;
+            currNode->PrintPlaylistNode();
+            cout << endl;
         }
         // Get next node
-        // ...
-//        ++numNodes;
+        currNode= currNode->GetNext();
+        ++numNodes;
     }
     return;
 }
+//////////////////////////////////////////////////////////////////////
+//DONE DO NOT TOUCH UNLESS ERROR
+//////////////////////////////////////////////////////////////////////
 
 void OutputTotalTime(PlaylistNode*& headNode)
 {
@@ -275,6 +307,11 @@ void OutputTotalTime(PlaylistNode*& headNode)
     // Total song times for each song in the list
     currNode = headNode;
     int totalTime = 0;
+    while(currNode!=0)
+    {
+        totalTime= totalTime+currNode->GetSongLength();
+        currNode = currNode->GetNext();
+    }
 
     // Over List and add up the totalTime
     // ...
@@ -282,7 +319,9 @@ void OutputTotalTime(PlaylistNode*& headNode)
     cout << "Total time: " << totalTime << " seconds" << endl << endl;
     return;
 }
-
+//////////////////////////////////////////////////////////////////////
+//DONE DO NOT TOUCH UNLESS ERROR
+//////////////////////////////////////////////////////////////////////
 void OutputFullList(const string playlistTitle, PlaylistNode*& headNode)
 {
     PlaylistNode* currPrintNode = 0;
@@ -303,14 +342,15 @@ void OutputFullList(const string playlistTitle, PlaylistNode*& headNode)
     {
         while (currPrintNode != 0) 
         {
-//            cout << numNodes << "." << endl;
+            cout << numNodes << "." << endl;
+                currPrintNode->PrintPlaylistNode();
+                currPrintNode = currPrintNode->GetNext();
 
             // cycle through the playlist
             // ...
 
-    
-//            cout << endl;
-//            ++numNodes;
+              cout << endl;
+            ++numNodes;
         }
     }
     return;
