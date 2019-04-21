@@ -293,9 +293,9 @@ void ChangeSongPosition(PlaylistNode*& headNode, PlaylistNode*& tailNode, Playli
         // ELSE:
         // STEP 1: Remove song at songPosition from list. Keep reference to that song.
         // If songPosition is 1, list head is removed
-        if(songNode==headNode)
+        if(songPosition==1)
         {
-            headNode->SetNext(headNode->GetNext());
+            headNode=headNode->GetNext();
         }
         else
         {
