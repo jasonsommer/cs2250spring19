@@ -136,6 +136,7 @@ else
 void DeleteSong(PlaylistNode*& headNode, PlaylistNode*& tailNode, PlaylistNode*& prevNode)
 {
     PlaylistNode* songNode = 0;
+    PlaylistNode* prevNodePtr = 0;
     string uniqueID;
     // Output playlist messaging
     cout << "REMOVE SONG" << endl;
@@ -144,39 +145,100 @@ void DeleteSong(PlaylistNode*& headNode, PlaylistNode*& tailNode, PlaylistNode*&
 
     // Count number of nodes in list
     songNode = headNode;
+    //prevNodePtr = headNode;
     int nodeNum;
 
     // songNode is the song to be removed
     while ((songNode != 0) && !(songNode->GetID() == uniqueID)) 
     {
+        prevNodePtr = songNode;
         songNode = songNode->GetNext();
+        
         nodeNum++;
     }
+    /*while(songNode->GetNext()->GetID() !=uniqueID)
+    {
+        prevNodePtr = prevNodePtr->GetNext();
+    }*/
+        
+   // songNode = songNode->GetNext();
 
     if (songNode == 0 ) 
     {
         // ERROR: songPosition provided by user is invalid
         // Do nothing
     }
+    else if(songNode==headNode)
+    {
+        songNode=headNode;
+        headNode = headNode->GetNext();
+
+        delete songNode;
+        return;
+
+    }
+    else if(songNode->GetNext()==0)
+    {
+        tailNode = prevNodePtr;
+        prevNodePtr->SetNext(0);
+        delete songNode;
+        return;
+
+
+
+    }
     else 
     {
         // Remove song at songPosition from list
-        if(songNode==headNode->GetNext())
-        {
-            PlaylistNode *temp = new PlaylistNode;
-            temp = headNode;
-            headNode = headNode->GetNext();
-
-            delete temp;
+        // works for removing head
+        //if(songNode==headNode)
+        //{
+            //PlaylistNode *temp = new PlaylistNode;
+            //temp = headNode;
+            //headNode = headNode->GetNext();
+            prevNodePtr->SetNext(songNode->GetNext());
+            delete songNode;
             return;
+       // }
+        //TODO fix any other removes
+        /*if(songNode->GetNext()==0)
+        {
+            PlaylistNode *current = new PlaylistNode;
+            PlaylistNode *prev = new PlaylistNode;
+            
+            tailNode= prev;
+            prev->SetNext(NULL);
+            delete current;
+            return;
+
+
+
         }
+        */
 
         // IF songPosition is 1, list head is removed
         // ...
         // ...
         // ELSE prevNode refers to node before the songNode
+        /*
         else
         {
+
+            
+            PlaylistNode *temp = new PlaylistNode;
+            songNode=temp;
+           // PlaylistNode *prev = new PlaylistNode;
+            prevNodePtr->SetNext(songNode->GetNext());
+            //tailNode= prev;
+            //prev->SetNext(current->GetNext());
+            //delete current;
+            delete temp;
+
+            return;
+
+
+        }
+        */
 
 
             // prevNode updated so next is the node following songNode
@@ -191,6 +253,7 @@ void ChangeSongPosition(PlaylistNode*& headNode, PlaylistNode*& tailNode, Playli
 {
     PlaylistNode* songNode = 0;
     PlaylistNode* insertPosNode = 0;
+    PlaylistNode* prev =0;
     int songPosition = 0;
     int newPosition = 0;
     int numNodes = 0;
@@ -210,6 +273,7 @@ void ChangeSongPosition(PlaylistNode*& headNode, PlaylistNode*& tailNode, Playli
     while ((songNode != 0) && (numNodes < (songPosition - 1))) 
     {
         ++numNodes;
+        prev = songNode;
         songNode = songNode->GetNext();
     }
 
@@ -220,13 +284,29 @@ void ChangeSongPosition(PlaylistNode*& headNode, PlaylistNode*& tailNode, Playli
     }
     else 
     {
+        PlaylistNode* temp = 0;
+
+        temp=songNode;
 
         // ELSE:
         // STEP 1: Remove song at songPosition from list. Keep reference to that song.
-
         // If songPosition is 1, list head is removed
-        // ...
-            // Else: prevNode refers to node before the songNode
+        if(songNode==headNode)
+        {
+            headNode->SetNext(headNode->GetNext());
+        }
+        else
+        {
+        prev->SetNext(songNode->GetNext());
+        }
+    while ((songNode != 0) && (numNodes < (newPosition - 1))) 
+    {
+        ++numNodes;
+        prev = songNode;
+        songNode = songNode->GetNext();
+    }
+
+        // Else: prevNode refers to node before the songNode
             // ...
 
             // prevNode updated so next is the node following songNode
@@ -238,18 +318,30 @@ void ChangeSongPosition(PlaylistNode*& headNode, PlaylistNode*& tailNode, Playli
         // ....
         if (newPosition <= 1) 
         {
-            //...
+            temp->SetNext(headNode);
+            headNode=temp;
 
+            delete temp;
+            delete prev;
+
+            
+            //...
+            
             cout << "\"" << songNode->GetSongName() << "\" moved to position 1" << endl << endl;
 
         }
         else 
         {
+            prev->SetNext(temp);
+            temp->SetNext(songNode);
+            songNode->SetNext(songNode->GetNext());
             // insertPosNode refers to the node before the location songNode is inserted
             // ...
 
             // Insert songNode to new location
             // ...
+            delete temp;
+            delete prev;
 
             cout << "\"" << songNode->GetSongName() << "\" moved to position " << newPosition << endl << endl;
         }
