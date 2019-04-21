@@ -277,6 +277,7 @@ void ChangeSongPosition(PlaylistNode*& headNode, PlaylistNode*& tailNode, Playli
         prev = songNode;
         songNode = songNode->GetNext();
     }
+            cout << "\"" << songNode->GetSongName() << "\" moved to position " << newPosition << endl << endl;
     numNodes=0;
 
     if (songNode == 0 ) 
@@ -331,7 +332,7 @@ void ChangeSongPosition(PlaylistNode*& headNode, PlaylistNode*& tailNode, Playli
             
             //...
             
-            cout << "\"" << songNode->GetSongName() << "\" moved to position 1" << endl << endl;
+            //cout << "\"" << songNode->GetSongName() << "\" moved to position 1" << endl << endl;
 
         }
         else 
@@ -339,7 +340,7 @@ void ChangeSongPosition(PlaylistNode*& headNode, PlaylistNode*& tailNode, Playli
             prev->SetNext(temp);
             temp->SetNext(songNode);
 
-            cout << "\"" << songNode->GetSongName() << "\" moved to position " << newPosition << endl << endl;
+            //cout << "\"" << songNode->GetSongName() << "\" moved to position " << newPosition << endl << endl;
         }
     }
     
