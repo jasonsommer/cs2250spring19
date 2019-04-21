@@ -38,11 +38,11 @@ int main()
     cout << "Enter phone number:" << endl;
     cin >> phoneNum;
     cout << "You entered: " << fullName << ", " << phoneNum << endl << endl;
-
+    headContact = new ContactNode(fullName, phoneNum, 0);
     //First contact node (head of heap)
     // use dynamically allocated memory here
     // ... 
-
+    
     // Get second person
     cin.ignore();
     cout << "Person 2" << endl;
@@ -51,7 +51,7 @@ int main()
     cout << "Enter phone number:" << endl;
     cin >> phoneNum;
     cout << "You entered: " << fullName << ", " << phoneNum << endl << endl;
-
+    nextContact1 = new ContactNode(fullName, phoneNum, 0);
     // 
     // Create a new contact here with "new" 
     // Use the insertAfter to conect the two nodes
@@ -60,18 +60,29 @@ int main()
 
     // Get third person
     // ...
+    cin.ignore();
+    cout << "Person 3" << endl;
+    cout << "Enter name:" << endl;
+    getline(cin, fullName);
+    cout << "Enter phone number:" << endl;
+    cin >> phoneNum;
+    cout << "You entered: " << fullName << ", " << phoneNum << endl << endl;
+    nextContact2 = new ContactNode(fullName, phoneNum, 0);
 
     // 
     // Create a new contact here with "new" 
     // Use the insertAfter to conect the two nodes
     // ...
 
+    headContact->InsertAfter(nextContact1);
+    nextContact1->InsertAfter(nextContact2);
 
     cout << "CONTACT LIST" << endl;
     //
     // ...
     // 
     // Loop over contacts
+    currContact=headContact;
     while (currContact != 0) 
     {
         currContact->PrintContactNode();

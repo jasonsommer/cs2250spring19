@@ -28,7 +28,11 @@ using namespace std;
  *  Description:  Default constructor. This constructor will NOT set any data
  * =====================================================================================
  */
+ContactNode::ContactNode()
+{
 
+this->nextNodePtr=0;
+}
 
 
 /* 
@@ -40,7 +44,16 @@ using namespace std;
  *  ContactNode* nextLoc
  * =====================================================================================
  */
+ContactNode::ContactNode(string initName, string initPhoneNum, ContactNode* nextLoc)
+{
+    this->contactName=initName;
+    this->contactPhoneNum=initPhoneNum;
+    this->nextNodePtr=nextLoc;
 
+
+
+
+}
 
 
 /* 
@@ -52,10 +65,10 @@ using namespace std;
 void ContactNode::InsertAfter(ContactNode* nodePtr) 
 {
     // here you may use a temporary pointer (see below)
-//    ContactNode* tmpNext = 0;
+//i    ContactNode* tmpNext = 0;
     // or directly use the current object (this->) to 
     // link it to the nodePrt, and setting notePrt->nextNodePtr to NULL or 0
-
+this->nextNodePtr=nodePtr;
     return;
 }
 
@@ -65,7 +78,10 @@ void ContactNode::InsertAfter(ContactNode* nodePtr)
  *  Description:  Return the contact's name
  * =====================================================================================
  */
-
+string ContactNode::GetName() const
+{
+    return this->contactName;
+}
 
 
 /* 
@@ -74,7 +90,10 @@ void ContactNode::InsertAfter(ContactNode* nodePtr)
  *  Description:  Return the phone number
  * =====================================================================================
  */
-
+string ContactNode::GetPhoneNumber() const
+{
+    return this->contactPhoneNum;
+}
 
 
 /* 

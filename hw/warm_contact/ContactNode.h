@@ -32,8 +32,7 @@ class ContactNode
         // Default Constructor
         ContactNode();
         // Param based Constructor
-        ContactNode(string initName, string initPhoneNum, 
-                ContactNode* nextLoc = 0);
+        ContactNode(string initName, string initPhoneNum, ContactNode* nextLoc = 0);
         // Getters
         string GetName() const;
         string GetPhoneNumber() const;
